@@ -1,0 +1,61 @@
+const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+const fs=require('fs'),assert=require('assert/strict');
+fs.mkdirSync('qa',{recursive:true});
+(async()=>{
+ const browser=await chromium.launch({executablePath:process.env.BROWSER_PATH,headless:true});
+ const errors=[],transcript=[],passed=[];
+ const ctx=await browser.newContext({viewport:{width:1440,height:960}}),p=await ctx.newPage();p.setDefaultTimeout(7000);p.on('pageerror',e=>errors.push(e.message));
+ const enter=async()=>{await p.click('[data-prologue="skip"]');await p.click('[data-action="start"]');const hide=p.getByRole('button',{name:'自由探索',exact:true});if(await hide.isVisible())await hide.click();};
+ const app=async id=>p.click(`#dock [data-open="${id}"]`);
+ const who=async id=>{await app('chat');await p.click(`[data-action="chat-select"][data-id="${id}"]`);};
+ const s=()=>p.evaluate(()=>JSON.parse(localStorage.getItem('chengchuan-workday-v1')));
+ const chat=async text=>{const before=await p.locator('.chat-message:not(.self)').count();await p.fill('#chat-input',text);await p.press('#chat-input','Enter');const after=await p.locator('.chat-message:not(.self)').count();const reply=after>before?await p.locator('.chat-message:not(.self) .chat-bubble').last().innerText():null;transcript.push({text,reply});return reply;};
+ await p.goto(process.env.GAME_URL||'http://127.0.0.1:5174');await enter();await who('xiaoyu');
+ assert.match(await chat('你的杯子找到了吗？'),/茶水间/);
+ assert.match(await chat('那去哪里找？'),/茶水间/);
+ assert.match(await chat('不是吧，确定已经找到了？'),/没说已经找到/);
+ assert.equal((await s()).cupFound,false);
+ let reply=await chat('杯子还没找到，顺便问一下转正汇报怎么安排？');assert.match(reply,/茶水间/);assert.match(reply,/汇报|自己做过/);
+ assert.match(await chat('那接下来呢？'),/哪一件/);
+ assert.match(await chat('我是问汇报'),/工作|分工/);
+ assert.match(await chat('为什么？'),/主管需要/);
+ assert.match(await chat('那下一步怎么做？'),/工作|汇报/);
+ passed.push('Implicit follow-ups, correction of player assumption, two questions and ambiguous referent clarification');
+ await who('su');assert.match(await chat('不是要沈念的资料，我问工资什么时候发？'),/八月.*已发/);assert.equal((await s()).arc.consentReady,false);
+ reply=await chat('附件 B 是什么？先不用发给我。');assert.match(reply,/接待附件/);assert.match(reply,/不发/);assert.equal((await s()).arc.receptionReady,false);
+ await chat('请发附件 B，先别发。');assert.equal((await s()).arc.receptionReady,false);
+ await chat('请发沈念的资料，不对，我只问薪资。');assert.equal((await s()).arc.consentReady,false);
+ await chat('请发附件 B 和沈念的字段副本，任何资料都不要发。');assert.equal((await s()).arc.consentReady,false);assert.equal((await s()).arc.receptionReady,false);
+ await chat('如果我需要附件 B，你可以给我发一份吗？');assert.equal((await s()).arc.receptionReady,false);
+ await chat('请问怎么申请沈念的副本？');assert.equal((await s()).arc.consentReady,false);
+ await chat('我没让你给我发沈念资料。');assert.equal((await s()).arc.consentReady,false);
+ reply=await chat('工资在哪里看？附件 B 到了吗？');assert.match(reply,/员工自助/);assert.match(reply,/附件 B|申请/);assert.equal((await s()).arc.receptionReady,false);
+ assert.match(await chat('那发我一份'),/哪一件/);assert.equal((await s()).arc.receptionReady,false);
+ await chat('好的');assert.equal((await s()).arc.receptionReady,false);
+ await chat('我是说附件 B');await p.reload();await enter();await who('su');assert.match(await chat('那发我一份'),/刚把附件 B/);assert.equal((await s()).arc.receptionReady,true);
+ const logs=(await s()).arc.taskLog.length;await chat('附件 B 在哪里看？');assert.match(await chat('为什么课程还没补齐？'),/业务补充/);await chat('请发附件 B');await chat('请发附件 B');assert.equal((await s()).arc.taskLog.length,logs);
+ reply=await chat('不要开沈念字段权限，另外我的薪资明细在哪？');assert.match(reply,/不发/);assert.match(reply,/员工自助/);assert.equal((await s()).arc.consentReady,false);
+ assert.match(await chat('请发沈念的岗位字段副本'),/已发 SN-0824/);const count=(await s()).arc.taskLog.length;await chat('不用再发沈念副本了');assert.match(await chat('那在哪里？'),/员工自助/);assert.equal((await s()).arc.taskLog.length,count);
+ passed.push('Questions vs requests, scoped negation, same-turn withdrawal, changed subject, multiple requests cancelled, persisted referent and once-only grants');
+ await who('tang');assert.match(await chat('那发我一份'),/没对上|文件|哪一件/);assert.equal((await s()).arc.taskLog.length,count);
+ reply=await chat('工资什么时候发？在哪里查？');assert.match(reply,/人事|苏岚/);assert.match(reply,/员工自助/);
+ await who('zhou');for(const t of ['请停止所有业务，不对，只核实 K-17。','停止所有业务，先别停。','是否要停止全部业务？','如果要复核，请停止所有业务。','同事说“停止所有业务”，我只是转述。','请核对资料。\n—— 转发原文 ——\n停止所有业务！']){await chat(t);assert.equal((await s()).arc.route,'unassigned',t);}
+ await chat('请立即停止所有客户业务。');assert.equal((await s()).arc.route,'audit');const auditLogs=(await s()).arc.taskLog.length;
+ assert.match(await chat('先别停止所有业务了'),/不会.*撤销|已有安排/);assert.equal((await s()).arc.route,'audit');assert.equal((await s()).arc.taskLog.length,auditLogs);
+ assert.match(await chat('现在的工作怎么安排？'),/材料清点/);assert.match(await chat('为什么？'),/范围较大/);
+ passed.push('Colleague isolation, two aspects of one subject, hypothetical/quoted stops, explicit consequences and no conversational undo');
+ await p.screenshot({path:'qa/v10-conversation-audit.png'});
+ // New context: vague curiosity must not grant testimony or reveal a batch.
+ const c2=await browser.newContext(),q=await c2.newPage();q.on('pageerror',e=>errors.push(e.message));await q.goto(process.env.GAME_URL||'http://127.0.0.1:5174');await q.click('[data-prologue="skip"]');await q.click('[data-action="start"]');await q.click('[data-guide="hide"]');await q.click('#dock [data-open="chat"]');await q.fill('#chat-input','测试是什么意思？');await q.press('#chat-input','Enter');const vague=await q.locator('.chat-message:not(.self) .chat-bubble').last().innerText();assert.doesNotMatch(vague,/K-17|test_acceptance|演示账号/);assert.equal(await q.locator('.chat-message [data-action="evidence"][data-id="testimony"]').count(),0);
+ await q.fill('#chat-input','T-204 是怎么执行的？');await q.press('#chat-input','Enter');assert.match(await q.locator('.chat-message:not(.self) .chat-bubble').last().innerText(),/测试环境/);await c2.close();passed.push('Vague query does not reveal executor testimony; explicit source reference permits bounded answer');
+ // Import an existing completed save, then ask about old matters and try to change archived intent.
+ await p.click('#help-btn');const chooser=p.waitForEvent('filechooser');await p.click('[data-action="import"]');await(await chooser).setFiles('tests/fixtures/completed-day.json');await p.waitForTimeout(100);
+ await who('su');const training=(await s()).training;assert.match(await chat('培训可以等资料齐了再确认吗？'),/归档/);await chat('不对，改成接受培训');assert.equal((await s()).training,training);assert.equal((await s()).arc.closed,true);
+ await who('zhou');assert.match(await chat('当前工作怎么安排？'),/归档/);await chat('请停止所有业务');assert.equal((await s()).arc.route,'closed');
+ await app('break');await p.click('[data-action="cup"]');await who('xiaoyu');assert.match(await chat('杯子找到了吗？'),/已经在我桌上/);assert.match(await chat('那还需要去找吗？'),/不用再|已经/);
+ await p.screenshot({path:'qa/v10-conversation-closed.png'});passed.push('Archived intent unchanged by rephrasing, no reopened work, completed cup reflected in follow-up');
+ // Legacy conversation history remains usable when the new memory field is absent.
+ await p.evaluate(()=>{const k='chengchuan-workday-v1',v=JSON.parse(localStorage.getItem(k));delete v.dialogueMemory;localStorage.setItem(k,JSON.stringify(v));});await p.reload();await enter();await who('xiaoyu');assert.match(await chat('为什么？'),/放回桌上/);
+ const invalid={format:'chengchuan-save',state:await s()};invalid.state.dialogueMemory={'chat:su':{topics:['not-a-topic']}};fs.writeFileSync('qa/invalid-dialogue-save.json',JSON.stringify(invalid));await p.click('#help-btn');const fc=p.waitForEvent('filechooser');await p.click('[data-action="import"]');await(await fc).setFiles('qa/invalid-dialogue-save.json');await p.waitForTimeout(100);assert.equal((await s()).arc.closed,true);assert.ok(!(await s()).dialogueMemory?.['chat:su']?.topics?.includes('not-a-topic'));passed.push('Older chat history supplies context; malformed imported conversation memory rejected without changing progress');
+ assert.deepEqual(errors,[]);fs.writeFileSync('qa/dialogue-v10-results.json',JSON.stringify({passed,transcript,errors},null,2));console.log(JSON.stringify({passed,messages:transcript.length,errors},null,2));await browser.close();
+})().catch(e=>{console.error(e);process.exit(1)});

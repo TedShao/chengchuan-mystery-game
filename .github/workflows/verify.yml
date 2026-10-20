@@ -1,0 +1,34 @@
+name: Verify game
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: sites/chengchuan-rebuild
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: sites/chengchuan-rebuild/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: npm run verify:build
+      - run: npx playwright install --with-deps chromium
+      - name: Test ten-minute opening
+        run: |
+          node scripts/dev.mjs > /tmp/chengchuan-dev.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill "$SERVER_PID" 2>/dev/null || true' EXIT
+          for attempt in $(seq 1 30); do
+            if curl --silent --fail http://127.0.0.1:5174/opening.html > /dev/null; then break; fi
+            sleep 1
+          done
+          npm run test:thanks

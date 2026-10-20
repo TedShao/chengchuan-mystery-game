@@ -1,0 +1,1323 @@
+{
+  "format": "chengchuan-save",
+  "state": {
+    "version": 1,
+    "started": true,
+    "theme": "green",
+    "doc": "reception",
+    "docs": {
+      "weekly": "第七周工作小结\n\n周一：知禾家居退货原因分类，补了 14 条漏填的 SKU。\n周二：青屿文创 86 款商品文案复核，发现两张尺寸图反了。\n周三：整理 CC-017 的旧测试记录，8 月 27 日 T-204 那条输入是“演示顾客”。\n周四：北辰数码夜班客服质检，真实订单不能放进演示稿。\n周五：整理签收单。CC-012 的现场单周四已经盖章，周五才扫描进来。\n\n转正后想独立做一个交付批次。"
+    },
+    "sheetRows": [
+      {
+        "id": "CC-001",
+        "name": "知禾售后 第1批",
+        "stage": "需求确认",
+        "owner": "陈扬",
+        "date": "08-20",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-001",
+        "name": "知禾售后 第1批",
+        "stage": "方案提交",
+        "owner": "陈扬",
+        "date": "08-21",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-001",
+        "name": "知禾售后 第1批",
+        "stage": "阶段交付",
+        "owner": "陈扬",
+        "date": "08-22",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-001",
+        "name": "知禾售后 第1批",
+        "stage": "反馈修订",
+        "owner": "陈扬",
+        "date": "08-23",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-001",
+        "name": "知禾售后 第1批",
+        "stage": "交付验收",
+        "owner": "陈扬",
+        "date": "08-24",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-001",
+        "name": "知禾售后 第1批",
+        "stage": "追加维护",
+        "owner": "陈扬",
+        "date": "08-25",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-002",
+        "name": "青屿商品资料 第2批",
+        "stage": "需求确认",
+        "owner": "何小雨",
+        "date": "08-20",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-002",
+        "name": "青屿商品资料 第2批",
+        "stage": "方案提交",
+        "owner": "何小雨",
+        "date": "08-21",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-002",
+        "name": "青屿商品资料 第2批",
+        "stage": "阶段交付",
+        "owner": "何小雨",
+        "date": "08-22",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-002",
+        "name": "青屿商品资料 第2批",
+        "stage": "反馈修订",
+        "owner": "何小雨",
+        "date": "08-23",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-002",
+        "name": "青屿商品资料 第2批",
+        "stage": "交付验收",
+        "owner": "何小雨",
+        "date": "08-24",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-002",
+        "name": "青屿商品资料 第2批",
+        "stage": "追加维护",
+        "owner": "何小雨",
+        "date": "08-25",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-003",
+        "name": "北辰质检 第3批",
+        "stage": "需求确认",
+        "owner": "林见",
+        "date": "08-20",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-003",
+        "name": "北辰质检 第3批",
+        "stage": "方案提交",
+        "owner": "林见",
+        "date": "08-21",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-003",
+        "name": "北辰质检 第3批",
+        "stage": "阶段交付",
+        "owner": "林见",
+        "date": "08-22",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-003",
+        "name": "北辰质检 第3批",
+        "stage": "反馈修订",
+        "owner": "林见",
+        "date": "08-23",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-003",
+        "name": "北辰质检 第3批",
+        "stage": "交付验收",
+        "owner": "林见",
+        "date": "08-24",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-003",
+        "name": "北辰质检 第3批",
+        "stage": "追加维护",
+        "owner": "林见",
+        "date": "08-25",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-004",
+        "name": "知禾售后 第4批",
+        "stage": "需求确认",
+        "owner": "唐婧",
+        "date": "08-20",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-004",
+        "name": "知禾售后 第4批",
+        "stage": "方案提交",
+        "owner": "唐婧",
+        "date": "08-21",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-004",
+        "name": "知禾售后 第4批",
+        "stage": "阶段交付",
+        "owner": "唐婧",
+        "date": "08-22",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-004",
+        "name": "知禾售后 第4批",
+        "stage": "反馈修订",
+        "owner": "唐婧",
+        "date": "08-23",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-004",
+        "name": "知禾售后 第4批",
+        "stage": "交付验收",
+        "owner": "唐婧",
+        "date": "08-24",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-005",
+        "name": "青屿商品资料 第5批",
+        "stage": "需求确认",
+        "owner": "陈扬",
+        "date": "08-20",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-005",
+        "name": "青屿商品资料 第5批",
+        "stage": "方案提交",
+        "owner": "陈扬",
+        "date": "08-21",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-005",
+        "name": "青屿商品资料 第5批",
+        "stage": "阶段交付",
+        "owner": "陈扬",
+        "date": "08-22",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-005",
+        "name": "青屿商品资料 第5批",
+        "stage": "反馈修订",
+        "owner": "陈扬",
+        "date": "08-23",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-005",
+        "name": "青屿商品资料 第5批",
+        "stage": "交付验收",
+        "owner": "陈扬",
+        "date": "08-24",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-006",
+        "name": "北辰质检 第6批",
+        "stage": "需求确认",
+        "owner": "何小雨",
+        "date": "08-20",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-006",
+        "name": "北辰质检 第6批",
+        "stage": "方案提交",
+        "owner": "何小雨",
+        "date": "08-21",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-006",
+        "name": "北辰质检 第6批",
+        "stage": "阶段交付",
+        "owner": "何小雨",
+        "date": "08-22",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-006",
+        "name": "北辰质检 第6批",
+        "stage": "反馈修订",
+        "owner": "何小雨",
+        "date": "08-23",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-006",
+        "name": "北辰质检 第6批",
+        "stage": "交付验收",
+        "owner": "何小雨",
+        "date": "08-24",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-007",
+        "name": "知禾售后 第7批",
+        "stage": "需求确认",
+        "owner": "林见",
+        "date": "08-20",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-007",
+        "name": "知禾售后 第7批",
+        "stage": "方案提交",
+        "owner": "林见",
+        "date": "08-21",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-007",
+        "name": "知禾售后 第7批",
+        "stage": "阶段交付",
+        "owner": "林见",
+        "date": "08-22",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-007",
+        "name": "知禾售后 第7批",
+        "stage": "反馈修订",
+        "owner": "林见",
+        "date": "08-23",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-007",
+        "name": "知禾售后 第7批",
+        "stage": "交付验收",
+        "owner": "林见",
+        "date": "08-24",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-008",
+        "name": "青屿商品资料 第8批",
+        "stage": "需求确认",
+        "owner": "唐婧",
+        "date": "08-20",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-008",
+        "name": "青屿商品资料 第8批",
+        "stage": "方案提交",
+        "owner": "唐婧",
+        "date": "08-21",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-008",
+        "name": "青屿商品资料 第8批",
+        "stage": "阶段交付",
+        "owner": "唐婧",
+        "date": "08-22",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-008",
+        "name": "青屿商品资料 第8批",
+        "stage": "反馈修订",
+        "owner": "唐婧",
+        "date": "08-23",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-008",
+        "name": "青屿商品资料 第8批",
+        "stage": "交付验收",
+        "owner": "唐婧",
+        "date": "08-24",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-009",
+        "name": "知禾 / 八月售后",
+        "stage": "需求确认",
+        "owner": "陈扬",
+        "date": "08-20",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-009",
+        "name": "知禾 / 八月售后",
+        "stage": "方案提交",
+        "owner": "陈扬",
+        "date": "08-21",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-009",
+        "name": "知禾 / 八月售后",
+        "stage": "阶段交付",
+        "owner": "陈扬",
+        "date": "08-22",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-009",
+        "name": "知禾 / 八月售后",
+        "stage": "反馈修订",
+        "owner": "陈扬",
+        "date": "08-23",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-009",
+        "name": "知禾 / 八月售后",
+        "stage": "交付验收",
+        "owner": "陈扬",
+        "date": "08-24",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-010",
+        "name": "知禾售后 第10批",
+        "stage": "需求确认",
+        "owner": "何小雨",
+        "date": "08-20",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-010",
+        "name": "知禾售后 第10批",
+        "stage": "方案提交",
+        "owner": "何小雨",
+        "date": "08-21",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-010",
+        "name": "知禾售后 第10批",
+        "stage": "阶段交付",
+        "owner": "何小雨",
+        "date": "08-22",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-010",
+        "name": "知禾售后 第10批",
+        "stage": "反馈修订",
+        "owner": "何小雨",
+        "date": "08-23",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-010",
+        "name": "知禾售后 第10批",
+        "stage": "交付验收",
+        "owner": "何小雨",
+        "date": "08-24",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-011",
+        "name": "青屿商品资料 第11批",
+        "stage": "需求确认",
+        "owner": "林见",
+        "date": "08-20",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-011",
+        "name": "青屿商品资料 第11批",
+        "stage": "方案提交",
+        "owner": "林见",
+        "date": "08-21",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-011",
+        "name": "青屿商品资料 第11批",
+        "stage": "阶段交付",
+        "owner": "林见",
+        "date": "08-22",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-011",
+        "name": "青屿商品资料 第11批",
+        "stage": "反馈修订",
+        "owner": "林见",
+        "date": "08-23",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-011",
+        "name": "青屿商品资料 第11批",
+        "stage": "交付验收",
+        "owner": "林见",
+        "date": "08-24",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-012",
+        "name": "北辰质检 第12批",
+        "stage": "需求确认",
+        "owner": "唐婧",
+        "date": "08-24",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-012",
+        "name": "北辰质检 第12批",
+        "stage": "方案提交",
+        "owner": "唐婧",
+        "date": "08-25",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-012",
+        "name": "北辰质检 第12批",
+        "stage": "阶段交付",
+        "owner": "唐婧",
+        "date": "08-26",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-012",
+        "name": "北辰质检 第12批",
+        "stage": "反馈修订",
+        "owner": "唐婧",
+        "date": "08-27",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-012",
+        "name": "北辰质检 第12批",
+        "stage": "交付验收",
+        "owner": "唐婧",
+        "date": "08-28",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-013",
+        "name": "知禾售后 第13批",
+        "stage": "需求确认",
+        "owner": "陈扬",
+        "date": "08-20",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-013",
+        "name": "知禾售后 第13批",
+        "stage": "方案提交",
+        "owner": "陈扬",
+        "date": "08-21",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-013",
+        "name": "知禾售后 第13批",
+        "stage": "阶段交付",
+        "owner": "陈扬",
+        "date": "08-22",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-013",
+        "name": "知禾售后 第13批",
+        "stage": "反馈修订",
+        "owner": "陈扬",
+        "date": "08-23",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-013",
+        "name": "知禾售后 第13批",
+        "stage": "交付验收",
+        "owner": "陈扬",
+        "date": "08-24",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-014",
+        "name": "青屿商品资料 第14批",
+        "stage": "需求确认",
+        "owner": "何小雨",
+        "date": "08-20",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-014",
+        "name": "青屿商品资料 第14批",
+        "stage": "方案提交",
+        "owner": "何小雨",
+        "date": "08-21",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-014",
+        "name": "青屿商品资料 第14批",
+        "stage": "阶段交付",
+        "owner": "何小雨",
+        "date": "08-22",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-014",
+        "name": "青屿商品资料 第14批",
+        "stage": "反馈修订",
+        "owner": "何小雨",
+        "date": "08-23",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-014",
+        "name": "青屿商品资料 第14批",
+        "stage": "交付验收",
+        "owner": "何小雨",
+        "date": "08-24",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-015",
+        "name": "北辰质检 第15批",
+        "stage": "需求确认",
+        "owner": "林见",
+        "date": "08-20",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-015",
+        "name": "北辰质检 第15批",
+        "stage": "方案提交",
+        "owner": "林见",
+        "date": "08-21",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-015",
+        "name": "北辰质检 第15批",
+        "stage": "阶段交付",
+        "owner": "林见",
+        "date": "08-22",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-015",
+        "name": "北辰质检 第15批",
+        "stage": "反馈修订",
+        "owner": "林见",
+        "date": "08-23",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-015",
+        "name": "北辰质检 第15批",
+        "stage": "交付验收",
+        "owner": "林见",
+        "date": "08-24",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-016",
+        "name": "知禾售后 第16批",
+        "stage": "需求确认",
+        "owner": "唐婧",
+        "date": "08-20",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-016",
+        "name": "知禾售后 第16批",
+        "stage": "方案提交",
+        "owner": "唐婧",
+        "date": "08-21",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-016",
+        "name": "知禾售后 第16批",
+        "stage": "阶段交付",
+        "owner": "唐婧",
+        "date": "08-22",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-016",
+        "name": "知禾售后 第16批",
+        "stage": "反馈修订",
+        "owner": "唐婧",
+        "date": "08-23",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-016",
+        "name": "知禾售后 第16批",
+        "stage": "交付验收",
+        "owner": "唐婧",
+        "date": "08-24",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-017",
+        "name": "禾序 / 澜桥测试包",
+        "stage": "需求确认",
+        "owner": "沈念",
+        "date": "08-23",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-017",
+        "name": "禾序 / 澜桥测试包",
+        "stage": "方案提交",
+        "owner": "沈念",
+        "date": "08-24",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-017",
+        "name": "禾序 / 澜桥测试包",
+        "stage": "阶段交付",
+        "owner": "沈念",
+        "date": "08-25",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-017",
+        "name": "禾序 / 澜桥测试包",
+        "stage": "反馈修订",
+        "owner": "沈念",
+        "date": "08-26",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-017",
+        "name": "禾序 / 澜桥测试包",
+        "stage": "交付验收",
+        "owner": "沈念",
+        "date": "08-27",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-018",
+        "name": "北辰质检 第18批",
+        "stage": "需求确认",
+        "owner": "何小雨",
+        "date": "08-20",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-018",
+        "name": "北辰质检 第18批",
+        "stage": "方案提交",
+        "owner": "何小雨",
+        "date": "08-21",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-018",
+        "name": "北辰质检 第18批",
+        "stage": "阶段交付",
+        "owner": "何小雨",
+        "date": "08-22",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-018",
+        "name": "北辰质检 第18批",
+        "stage": "反馈修订",
+        "owner": "何小雨",
+        "date": "08-23",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-018",
+        "name": "北辰质检 第18批",
+        "stage": "交付验收",
+        "owner": "何小雨",
+        "date": "08-24",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-019",
+        "name": "知禾售后 第19批",
+        "stage": "需求确认",
+        "owner": "林见",
+        "date": "08-20",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-019",
+        "name": "知禾售后 第19批",
+        "stage": "方案提交",
+        "owner": "林见",
+        "date": "08-21",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-019",
+        "name": "知禾售后 第19批",
+        "stage": "阶段交付",
+        "owner": "林见",
+        "date": "08-22",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-019",
+        "name": "知禾售后 第19批",
+        "stage": "反馈修订",
+        "owner": "林见",
+        "date": "08-23",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-019",
+        "name": "知禾售后 第19批",
+        "stage": "交付验收",
+        "owner": "林见",
+        "date": "08-24",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-020",
+        "name": "青屿商品资料 第20批",
+        "stage": "需求确认",
+        "owner": "唐婧",
+        "date": "08-20",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-020",
+        "name": "青屿商品资料 第20批",
+        "stage": "方案提交",
+        "owner": "唐婧",
+        "date": "08-21",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-020",
+        "name": "青屿商品资料 第20批",
+        "stage": "阶段交付",
+        "owner": "唐婧",
+        "date": "08-22",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-020",
+        "name": "青屿商品资料 第20批",
+        "stage": "反馈修订",
+        "owner": "唐婧",
+        "date": "08-23",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-020",
+        "name": "青屿商品资料 第20批",
+        "stage": "交付验收",
+        "owner": "唐婧",
+        "date": "08-24",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-021",
+        "name": "北辰质检 第21批",
+        "stage": "需求确认",
+        "owner": "陈扬",
+        "date": "08-20",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-021",
+        "name": "北辰质检 第21批",
+        "stage": "方案提交",
+        "owner": "陈扬",
+        "date": "08-21",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-021",
+        "name": "北辰质检 第21批",
+        "stage": "阶段交付",
+        "owner": "陈扬",
+        "date": "08-22",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-021",
+        "name": "北辰质检 第21批",
+        "stage": "反馈修订",
+        "owner": "陈扬",
+        "date": "08-23",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-021",
+        "name": "北辰质检 第21批",
+        "stage": "交付验收",
+        "owner": "陈扬",
+        "date": "08-24",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-022",
+        "name": "知禾售后 第22批",
+        "stage": "需求确认",
+        "owner": "何小雨",
+        "date": "08-20",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-022",
+        "name": "知禾售后 第22批",
+        "stage": "方案提交",
+        "owner": "何小雨",
+        "date": "08-21",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-022",
+        "name": "知禾售后 第22批",
+        "stage": "阶段交付",
+        "owner": "何小雨",
+        "date": "08-22",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-022",
+        "name": "知禾售后 第22批",
+        "stage": "反馈修订",
+        "owner": "何小雨",
+        "date": "08-23",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-022",
+        "name": "知禾售后 第22批",
+        "stage": "交付验收",
+        "owner": "何小雨",
+        "date": "08-24",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-023",
+        "name": "青屿商品资料 第23批",
+        "stage": "需求确认",
+        "owner": "林见",
+        "date": "08-20",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-023",
+        "name": "青屿商品资料 第23批",
+        "stage": "方案提交",
+        "owner": "林见",
+        "date": "08-21",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-023",
+        "name": "青屿商品资料 第23批",
+        "stage": "阶段交付",
+        "owner": "林见",
+        "date": "08-22",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-023",
+        "name": "青屿商品资料 第23批",
+        "stage": "反馈修订",
+        "owner": "林见",
+        "date": "08-23",
+        "status": "已完成"
+      },
+      {
+        "id": "CC-023",
+        "name": "青屿商品资料 第23批",
+        "stage": "交付验收",
+        "owner": "林见",
+        "date": "08-24",
+        "status": "已完成"
+      }
+    ],
+    "sheetMode": "original",
+    "sheetFilter": "",
+    "sheetUnique": true,
+    "sheetSort": false,
+    "sheetAnalysis": false,
+    "formula": "=COUNTA(A2:A119)",
+    "formulaResult": "",
+    "slide": 2,
+    "slideNotes": false,
+    "report": {
+      "titles": [
+        "转正工作汇报",
+        "本季度项目成绩",
+        "下一阶段工作计划"
+      ],
+      "intro": "林见 / 运营支持\n入职第七周 · 09.06",
+      "work": "整理项目交付资料\n维护客户沟通台账\n协助团队完成工作汇报",
+      "count": 23,
+      "unit": "projects",
+      "claim": "verify",
+      "remarks": "继续熟悉业务流程，期待在转正后独立负责项目。"
+    },
+    "evidence": [
+      "contract",
+      "ticket",
+      "billing",
+      "clientreply",
+      "consent",
+      "reception"
+    ],
+    "notes": "诈骗 全部停止！这句话不会发送。",
+    "selectedMail": "assignment",
+    "mailSearch": "",
+    "mailFolder": "inbox",
+    "extraMails": [
+      {
+        "id": "mail-1792323910684-7",
+        "from": "苏岚 · 人事部",
+        "subject": "明日工作安排",
+        "body": "驻场推荐暂挂。明天先做国内 FAQ 资料，接收主体与课程说明另行补齐。本次仅调整你的推荐，不改动其他同事的安排。",
+        "time": "今天 · 刚刚"
+      },
+      {
+        "id": "mail-1792323910416-6",
+        "from": "苏岚 · 人事部",
+        "subject": "附件 B 已补 / HX-09-06",
+        "body": "渠道刚补了接待单，课程和下一段行程他们说集合后发。\n请核对本人意向。\nhttps://people.chengchuan.example",
+        "time": "今天 · 刚刚"
+      },
+      {
+        "id": "mail-1792323910383-5",
+        "from": "苏岚 · 人事部",
+        "subject": "回复：SN-0819 交接字段",
+        "body": "补充 SN-0824，当前确认的是深圳资料中心，两周。旧的境外方案仍暂停。\n\n我早上汇总写“总部”省略了地点，已经改成“国内资料中心”。\n副本可在员工自助区读取。\nhttps://people.chengchuan.example",
+        "time": "今天 · 刚刚"
+      },
+      {
+        "id": "mail-1792323910151-4",
+        "from": "谢宁 · 澜桥商务",
+        "subject": "回复：H-0821 范围确认",
+        "body": "已查 H-0821，交付范围为测试资料包。我们没有签署该批生产客服订单。K-17 中的 120 条是测试用例。测试包本身可以按约结算，请更正科目。\n\nhttps://support.chengchuan.example/contact",
+        "time": "今天 · 刚刚"
+      },
+      {
+        "id": "mail-1792323910084-3",
+        "from": "周衡 · 项目部",
+        "subject": "工作单更新：W-207",
+        "body": "请用已登记联系人确认 H-0821 的范围，再填写交接意见。\nhttps://support.chengchuan.example/contact",
+        "time": "今天 · 刚刚"
+      },
+      {
+        "id": "mail-1792323909934-2",
+        "from": "唐婧 · 财务协作",
+        "subject": "W-204 退回补充",
+        "body": "唐婧：P-12 有北辰的签收邮件，晚传扫描件不等于未交付。请重核处理对象。",
+        "time": "今天 · 刚刚"
+      },
+      {
+        "id": "mail-1792323909567-1",
+        "from": "周衡 · 工作回复",
+        "subject": "回复：转正汇报",
+        "body": "收到，你先做结算复核。具体哪笔、哪份订单写进工作单，其他客户照常推进。\n\nhttps://work.chengchuan.example",
+        "time": "今天 · 刚刚"
+      },
+      {
+        "id": "mail-1792323909566-0",
+        "from": "周衡 · 项目部",
+        "subject": "工作单 W-204：结算条目复核",
+        "body": "收到，你先做结算复核。具体哪笔、哪份订单写进工作单，其他客户照常推进。\n\n请在工作单填回单编号、订单与处理建议。\nhttps://work.chengchuan.example",
+        "time": "今天 · 刚刚"
+      }
+    ],
+    "sentMails": [
+      {
+        "id": "client-1792323910151",
+        "from": "我 → 谢宁 · 澜桥商务",
+        "subject": "H-0821 范围确认",
+        "body": "请核实 H-0821 的服务范围、K-17 是否为生产服务，以及总部培训授权。",
+        "time": "今天 · 已发送"
+      },
+      {
+        "id": "case-1792323910084",
+        "from": "我 → 唐婧",
+        "subject": "W-204 / K-17",
+        "body": "订单 H-0821\n处理 hold\nT-204 沙盒记录与 H-0821 测试范围对应，K-17 却写生产科目。请核对。\n附件：H-0821 服务订单摘录、T-204 / 测试环境记录、K-17 / 待结算条目",
+        "time": "今天 · 已发送"
+      },
+      {
+        "id": "case-1792323909934",
+        "from": "我 → 唐婧",
+        "subject": "W-204 / K-12",
+        "body": "订单 B-0805\n处理 hold\n签收上传较晚，核对\n附件：",
+        "time": "今天 · 已发送"
+      },
+      {
+        "id": "report-1792323909567",
+        "from": "我 → 周衡",
+        "subject": "转正汇报 · 第 1 稿",
+        "body": "{\n  \"幻灯片\": [\n    {\n      \"标题\": \"转正工作汇报\",\n      \"正文\": \"林见 / 运营支持\\n入职第七周 · 09.06\"\n    },\n    {\n      \"标题\": \"本季度项目成绩\",\n      \"正文\": \"23 projects\"\n    },\n    {\n      \"标题\": \"下一阶段工作计划\",\n      \"正文\": \"整理项目交付资料\\n维护客户沟通台账\\n协助团队完成工作汇报\"\n    }\n  ],\n  \"数字\": 23,\n  \"单位\": \"projects\",\n  \"接手意见\": \"先复核具体条目\",\n  \"说明\": \"继续熟悉业务流程，期待在转正后独立负责项目。\",\n  \"附件\": [\n    \"H-0821 服务订单摘录\",\n    \"T-204 / 测试环境记录\",\n    \"K-17 / 待结算条目\"\n  ]\n}",
+        "time": "今天 · 已发送"
+      }
+    ],
+    "chat": "xiaoyu",
+    "chats": {
+      "xiaoyu": [
+        {
+          "self": false,
+          "text": "早！今天你做转正汇报吧？模板在文件里。先把名字改了，上一位差点把我的名字交上去。"
+        },
+        {
+          "self": false,
+          "text": "还有，我的绿杯子又不见了……"
+        },
+        {
+          "self": false,
+          "text": "明天你还在国内组呀，那份尺寸图我留给你复核。"
+        }
+      ],
+      "tang": [
+        {
+          "self": false,
+          "text": "早。台账封存了，结算池留了三笔给项目部过一下。中午前我在会议室。"
+        },
+        {
+          "self": false,
+          "text": "W-204 分给你了。三笔回单都在结算池，别把正常的两笔一起卡住。"
+        },
+        {
+          "self": false,
+          "text": "唐婧：P-12 有北辰的签收邮件，晚传扫描件不等于未交付。请重核处理对象。"
+        },
+        {
+          "self": false,
+          "text": "K-17 先挂起，其余两笔我继续走。客户范围确认入口给你了。"
+        }
+      ],
+      "su": [
+        {
+          "self": false,
+          "text": "林见，推荐名单发你了。附件 A 先收着，剩下的我催业务。"
+        },
+        {
+          "self": false,
+          "text": "SN-0824 的岗位字段副本已给你。你看的是 19 号那份，后来确实换过安排。别把两版拼成一份。"
+        },
+        {
+          "self": false,
+          "text": "附件 B 已进员工自助。课程表我还没拿到，先把已收到的给你。"
+        },
+        {
+          "self": false,
+          "text": "驻场推荐暂挂。明天先做国内 FAQ 资料，接收主体与课程说明另行补齐。本次仅调整你的推荐，不改动其他同事的安排。"
+        }
+      ],
+      "zhou": [
+        {
+          "self": false,
+          "text": "汇报今天发我。数字和结论要写清楚，不要一长段空话。"
+        },
+        {
+          "self": false,
+          "text": "科目按客户说的改。本人接手范围你再跟苏岚确认。"
+        }
+      ]
+    },
+    "oaPage": "home",
+    "fileSearch": "",
+    "coffee": 0,
+    "cupFound": false,
+    "memory": {
+      "deck": [
+        "🍋",
+        "📎",
+        "🌼",
+        "🍋",
+        "☕",
+        "🌿",
+        "📎",
+        "🌿",
+        "🍪",
+        "🌼",
+        "🍪",
+        "☕"
+      ],
+      "open": [],
+      "matched": [],
+      "moves": 0
+    },
+    "submissions": [
+      {
+        "id": 1792323909567,
+        "to": "zhou",
+        "evidence": [
+          "contract",
+          "ticket",
+          "billing"
+        ],
+        "report": {
+          "titles": [
+            "转正工作汇报",
+            "本季度项目成绩",
+            "下一阶段工作计划"
+          ],
+          "intro": "林见 / 运营支持\n入职第七周 · 09.06",
+          "work": "整理项目交付资料\n维护客户沟通台账\n协助团队完成工作汇报",
+          "count": 23,
+          "unit": "projects",
+          "claim": "verify",
+          "remarks": "继续熟悉业务流程，期待在转正后独立负责项目。",
+          "extraSlides": {}
+        },
+        "kind": "review",
+        "title": "周衡回复",
+        "feedback": "收到，你先做结算复核。具体哪笔、哪份订单写进工作单，其他客户照常推进。",
+        "extra": ""
+      }
+    ],
+    "training": "hold",
+    "ended": false,
+    "meetRisk": false,
+    "arc": {
+      "revision": 2,
+      "forms": {
+        "case-batch": "K-17",
+        "case-contract": "H-0821",
+        "case-choice": "hold",
+        "case-note": "T-204 沙盒记录与 H-0821 测试范围对应，K-17 却写生产科目。请核对。",
+        "case-source:contract": true,
+        "case-source:ticket": true,
+        "case-source:billing": true,
+        "client-question": "",
+        "final-choice": "hold",
+        "final-note": "测试包继续，个人驻场等接待安排补齐。",
+        "final-source:clientreply": true,
+        "final-source:consent": true,
+        "final-source:reception": true
+      },
+      "route": "closed",
+      "history": [
+        "portal.chengchuan.example",
+        "crm.chengchuan.example",
+        "desk.chengchuan.example/t204",
+        "billing.chengchuan.example",
+        "work.chengchuan.example",
+        "desk.chengchuan.example/t204",
+        "work.chengchuan.example",
+        "support.chengchuan.example/contact",
+        "people.chengchuan.example",
+        "work.chengchuan.example"
+      ],
+      "historyIndex": 9,
+      "visited": [
+        "portal.chengchuan.example",
+        "crm.chengchuan.example",
+        "desk.chengchuan.example/t204",
+        "billing.chengchuan.example",
+        "work.chengchuan.example",
+        "support.chengchuan.example/contact",
+        "people.chengchuan.example"
+      ],
+      "requests": [
+        {
+          "type": "review",
+          "batch": "K-12",
+          "order": "B-0805",
+          "choice": "hold",
+          "note": "签收上传较晚，核对",
+          "attached": []
+        },
+        {
+          "type": "review",
+          "batch": "K-17",
+          "order": "H-0821",
+          "choice": "hold",
+          "note": "T-204 沙盒记录与 H-0821 测试范围对应，K-17 却写生产科目。请核对。",
+          "attached": [
+            "contract",
+            "ticket",
+            "billing"
+          ]
+        },
+        {
+          "type": "handover",
+          "choice": "hold",
+          "attached": [
+            "clientreply",
+            "consent",
+            "reception"
+          ],
+          "note": "测试包继续，个人驻场等接待安排补齐。"
+        }
+      ],
+      "taskLog": [
+        "W-204 已指派给林见。交付变更日志开放。",
+        "收到，你先做结算复核。具体哪笔、哪份订单写进工作单，其他客户照常推进。",
+        "唐婧：P-12 有北辰的签收邮件，晚传扫描件不等于未交付。请重核处理对象。",
+        "K-17 暂挂。W-207 已生成，客户联络授权开放。",
+        "订单范围回函已归档。W-207 等待本人的交接意见，接待附件可向人事索取。",
+        "SN-0824 岗位字段副本已授权。",
+        "培训接待单 HX-09-06 已上传。",
+        "驻场推荐暂挂。明天先做国内 FAQ 资料，接收主体与课程说明另行补齐。本次仅调整你的推荐，不改动其他同事的安排。"
+      ],
+      "closed": true,
+      "caseReady": true,
+      "consentReady": true,
+      "clientReady": true,
+      "receptionReady": true,
+      "restricted": false,
+      "published": "",
+      "reviewNote": "T-204 沙盒记录与 H-0821 测试范围对应，K-17 却写生产科目。请核对。",
+      "draftCopy": "本季度完成 118 个项目。禾序项目已完成海外客户上线。",
+      "auditNote": "",
+      "finalChoice": "hold",
+      "lastReply": "驻场推荐暂挂。明天先做国内 FAQ 资料，接收主体与课程说明另行补齐。本次仅调整你的推荐，不改动其他同事的安排。",
+      "processedForms": {
+        "case-form:review:false:false": "[[\"case-batch\",\"K-17\"],[\"case-contract\",\"H-0821\"],[\"case-choice\",\"hold\"],[\"case-note\",\"T-204 沙盒记录与 H-0821 测试范围对应，K-17 却写生产科目。请核对。\"],[\"case-source\",\"true:contract\"],[\"case-source\",\"true:ticket\"],[\"case-source\",\"true:billing\"]]",
+        "client-form:followup:false:false": "[[\"\",\"谢宁 · 澜桥商务（CRM 登记）\"],[\"client-topic\",\"business\"],[\"client-question\",\"请核实 H-0821 的服务范围、K-17 是否为生产服务，以及总部培训授权。\"]]",
+        "final-form:followup:true:false": "[[\"final-choice\",\"hold\"],[\"final-note\",\"测试包继续，个人驻场等接待安排补齐。\"],[\"final-source\",\"true:clientreply\"],[\"final-source\",\"true:consent\"],[\"final-source\",\"true:reception\"]]"
+      },
+      "handoverReply": "驻场推荐暂挂。明天先做国内 FAQ 资料，接收主体与课程说明另行补齐。本次仅调整你的推荐，不改动其他同事的安排。"
+    },
+    "ui": {
+      "guide": {
+        "enabled": false,
+        "step": 0,
+        "introEdited": false
+      },
+      "tabs": {
+        "doc": "开始",
+        "sheet": "开始",
+        "ppt": "开始"
+      },
+      "styles": {},
+      "books": {},
+      "extraSlides": {},
+      "oa": {
+        "department": "全部",
+        "query": "",
+        "approvalFilter": "待我处理",
+        "requests": []
+      }
+    },
+    "lastReportSignature": "{\"to\":\"zhou\",\"r\":{\"titles\":[\"转正工作汇报\",\"本季度项目成绩\",\"下一阶段工作计划\"],\"intro\":\"林见 / 运营支持\\n入职第七周 · 09.06\",\"work\":\"整理项目交付资料\\n维护客户沟通台账\\n协助团队完成工作汇报\",\"count\":23,\"unit\":\"projects\",\"claim\":\"verify\",\"remarks\":\"继续熟悉业务流程，期待在转正后独立负责项目。\"},\"extra\":\"\",\"evidence\":[\"billing\",\"contract\",\"ticket\"],\"slides\":{}}",
+    "conversations": {}
+  },
+  "customDocs": {}
+}

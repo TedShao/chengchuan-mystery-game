@@ -1,0 +1,16 @@
+# Local project mirror and the independently preserved original
+/AGENTS.md
+/sources/
+/sites/chengchuan-firstday/
+/.local/
+**/.openai/
+**/node_modules/
+**/dist/
+**/qa/
+**/.env
+**/.env.*
+!**/.env.example
+**/*.log
+**/.DS_Store
+**/*.pem
+**/*.key

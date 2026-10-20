@@ -1,0 +1,34 @@
+const {chromium}=require(require('path').join(require('os').homedir(),'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'));
+const fs=require('fs'),assert=require('assert/strict');
+(async()=>{
+ const b=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'}),ctx=await b.newContext({viewport:{width:1440,height:1000},reducedMotion:'reduce'}),p=await ctx.newPage();p.setDefaultTimeout(6000);
+ const log=[],errors=[];p.on('pageerror',e=>errors.push(e.message));fs.mkdirSync('qa/chapter-one',{recursive:true});
+ const state=()=>p.evaluate(()=>JSON.parse(localStorage.getItem('chengchuan-rebuild-v1')));
+ const observe=async(label,selector)=>{const text=await p.locator(selector).last().innerText();log.push({label,text});console.log(label+'\n'+text);};
+ const ask=async text=>{await p.fill('#chat-input',text);await p.press('#chat-input','Enter');await p.waitForTimeout(650);await observe(text,'.chat-message:not(.self) .chat-bubble');};
+ await p.goto('http://127.0.0.1:5174');await p.click('[data-prologue="skip"]');await p.click('[data-action="start"]');if(await p.locator('.shift-orientation').count()){await require('./opening-helper.cjs').complete(p);await p.click('[data-lesson="begin"]');}await p.click('[data-lesson="pause"]');
+ await p.click('[data-case-id="attachment"]');await p.click('[data-shift="free-mode"]');
+ const fields=['她说下载的那个表死活点不开，手机电脑都试过。','把旧的换掉，新的又给她发了一遍。','她回我说这回行了，还道了谢。'];
+ for(let i=0;i<3;i++)await p.fill('[data-shift-field="'+i+'"]',fields[i]);
+ await p.click('[data-shift-preview]');await p.click('[data-action="submit-report"]');await p.locator('#modal-root [data-open="mail"]').waitFor();await p.click('#modal-root [data-open="mail"]');await observe('口语首稿反馈','[data-window="mail"] .app-content');
+ await p.click('#dock [data-open="start"]');await p.click('.shift-after-actions [data-detail="training"]');await observe('培训来信','[data-window="mail"]');
+ await p.locator('[data-window="mail"] [data-detail="summary"]').click();await observe('共享案例','[data-window="doc"]');
+ await p.click('#dock [data-open="chat"]');
+ for(const q of ['这上面怎么就算全解决了？','我是说她那两万，不是附件。','那你有回单吗？','不是说你造假，我是问谢谢那句是啥时候的。','那原话在哪看？','谁把这几件事写一起的？','不对，我先不接这事，只想看看之前咋转的。'])await ask(q);
+
+ assert.equal((await state()).workdays.reviews[1].usable,true);assert.equal((await state()).case.followup,'xiaoyu');assert.equal((await state()).case.sentQueries,false);
+ assert(log.find(x=>x.label==='那你有回单吗？').text.includes('银行回单'));assert(log.find(x=>x.label==='谁把这几件事写一起的？').text.includes('初稿'));
+ await p.locator('[data-window="chat"] .chat-messages [data-case="record"]').last().click();await p.click('[data-case-confirm="record"]');await p.locator('[data-window="chat"] [data-detail="transfer"]').last().click();await observe('取得旧对接记录','[data-window="doc"] .document-paper');
+ await p.click('#dock [data-open="doc"]');await p.selectOption('[data-change="doc-select"]','summary');await p.locator('[data-window="doc"] [data-detail="original"]').click();await p.fill('[data-input="sheet-filter"]','罗青');await observe('回看三个事项','[data-window="sheet"] .sheet-table');
+ await p.click('#dock [data-open="mail"]');await p.click('[data-action="mail-select"][data-id="luo"]');await p.locator('[data-window="mail"] details summary').click();await observe('新旧邮件对照','[data-window="mail"] .app-content');await p.click('[data-action="evidence"][data-id="luo"]');
+ await p.click('#dock [data-open="chat"]');await ask('她后来给我发信说两万没到，你收到那封了吗？');assert(!(await state()).case.known.xiaoyu.includes('luo'));
+ await p.click('[data-action="chat-select"][data-id="zhou"]');await ask('复盘里把谢谢写在一串事情后头，我只做了上个月发文件那回，能改吗？');
+ await p.locator('[data-window="chat"] .chat-messages [data-case="correct"]').last().click();await p.fill('#case-note','谢谢是我上个月发文件后她回的，不该算进这月那笔钱的结果里。');await p.check('[name="sources"][value="luo"]');await p.click('[data-case-confirm="correct"]');
+ await observe('更正后的实际回复','[data-window="chat"]');assert.equal((await state()).case.shared,'0515');assert.equal((await state()).case.reportVersion,1);assert.equal((await state()).case.followup,'xiaoyu');
+ await p.click('#dock [data-open="mail"]');await p.click('[data-action="mail-select"][data-id="scope-after-correction"]');await observe('更正后公司的业务安排','[data-window="mail"] .app-content');await p.locator('[data-window="mail"] [data-detail="scope"]').click();await observe('实际服务范围','[data-window="doc"] .document-paper');
+ await p.click('#dock [data-open="chat"]');await p.click('[data-action="chat-select"][data-id="xiaoyu"]');await ask('我先不接手，但她转回来的钱到底谁能给个日期？');assert(!log.at(-1).text.includes('4 月 7 日'));await p.locator('[data-window="chat"] .chat-messages [data-case="follow"]').last().click();await p.selectOption('#case-choice','xiaoyu');await p.click('[data-case-confirm="follow"]');assert.equal((await state()).case.followup,'xiaoyu');
+ await p.click('#dock [data-open="oa"]');await p.click('[data-work="afternoon"]');await observe('下午交接','[data-window="mail"] .app-content');
+ await p.click('.system-status [data-action="end-day"]');await p.click('[data-work="save-day"]');assert.equal((await state()).ended,true);assert.equal((await state()).case.reportVersion,1);assert.equal((await state()).case.followup,'xiaoyu');
+ await observe('第一章交接结果','#modal-root');await p.screenshot({path:'qa/chapter-one/complete.png'});assert.deepEqual(errors,[]);
+fs.writeFileSync('qa/chapter-one/probe.json',JSON.stringify({log,errors},null,2));await b.close();
+})().catch(e=>{console.error(e);process.exit(1)});

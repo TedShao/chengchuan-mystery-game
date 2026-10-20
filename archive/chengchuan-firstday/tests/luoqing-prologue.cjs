@@ -1,0 +1,28 @@
+const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+const fs=require('fs'),assert=require('assert/strict');
+(async()=>{
+ const browser=await chromium.launch({executablePath:process.env.BROWSER_PATH||undefined,headless:true});
+ const errors=[],passed=[];fs.mkdirSync('qa',{recursive:true});
+ const fresh=async(options={})=>{const c=await browser.newContext({viewport:{width:1366,height:900},...options});const p=await c.newPage();p.on('pageerror',e=>errors.push(e.message));return p;};
+ const url=process.env.GAME_URL||'http://127.0.0.1:5173';
+ const state=p=>p.evaluate(()=>JSON.parse(render_game_to_text()));
+ const p=await fresh();await p.goto(url);await p.waitForTimeout(1350);
+ assert.equal((await state(p)).mode,'prologue');assert.equal(await p.locator('#desktop').evaluate(e=>e.inert),true);
+ await p.screenshot({path:'qa/luo-prologue-opening.png'});
+ await p.keyboard.press('Escape');assert.equal((await state(p)).prologue.paused,true);assert.equal((await state(p)).mode,'prologue');
+ await p.clock.install();await p.clock.fastForward(30000);assert.equal((await state(p)).prologue.page,1);
+ await p.click('[data-prologue="pause"]');await p.clock.fastForward(10500);assert.equal((await state(p)).prologue.transitioning,true);await p.clock.fastForward(1100);assert.equal((await state(p)).prologue.page,2);
+ await p.click('[data-prologue="pause"]');await p.clock.fastForward(30000);assert.equal((await state(p)).prologue.page,2);
+ await p.keyboard.press('ArrowLeft');await p.clock.fastForward(1100);assert.equal((await state(p)).prologue.page,1);
+ // A second navigation click during the fade must not skip a page.
+ await p.evaluate(()=>{document.querySelector('[data-prologue="next"]').click();document.querySelector('[data-prologue="next"]').click();});await p.clock.fastForward(1100);assert.equal((await state(p)).prologue.page,2);
+ await p.click('[data-prologue="skip"]');await p.clock.fastForward(1100);await p.clock.fastForward(60000);assert.equal((await state(p)).prologue.page,3);assert.equal((await state(p)).mode,'prologue');
+ await p.clock.resume();await p.waitForTimeout(1200);await p.screenshot({path:'qa/luo-prologue-ready.png'});
+ await p.keyboard.press('Tab');assert.equal(await p.evaluate(()=>document.activeElement.closest('#prologue')!==null),true);
+ await p.click('[data-action="start"]');assert.equal((await state(p)).activeApp,'mail');assert.equal(await p.locator('#desktop').evaluate(e=>e.inert),false);
+ await p.screenshot({path:'qa/luo-prologue-workspace.png'});await p.reload();assert.equal((await state(p)).mode,'prologue');await p.click('[data-prologue="skip"]');await p.waitForTimeout(1200);await p.click('[data-action="start"]');assert.equal((await state(p)).mode,'working');
+ passed.push('Fades and automatic timing, pause, Escape, keyboard navigation, rapid clicks, skip, explicit start, mailbox handoff, reload');
+ const mobile=await fresh({viewport:{width:390,height:844},reducedMotion:'reduce'});await mobile.goto(url);await mobile.waitForTimeout(100);await mobile.screenshot({path:'qa/luo-prologue-mobile.png'});assert.equal(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);await mobile.click('[data-prologue="skip"]');assert.equal((await state(mobile)).prologue.page,3);await mobile.screenshot({path:'qa/luo-prologue-mobile-ready.png'});assert.equal(await mobile.locator('[data-action="start"]').isVisible(),true);
+ passed.push('390px layout and entry control');
+ assert.deepEqual(errors,[]);console.log(JSON.stringify({passed,errors},null,2));fs.writeFileSync('qa/luo-prologue-results.json',JSON.stringify({passed,errors},null,2));await browser.close();
+})().catch(e=>{console.error(e);process.exit(1)});
