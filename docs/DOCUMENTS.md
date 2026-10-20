@@ -13,7 +13,7 @@
 | [在线操作](ONLINE-WORKFLOW.md) | 网页编辑、Actions、Pages 的实际操作 | 工具层，不能代替故事验收 |
 | [项目 README](../sites/chengchuan-rebuild/README.md) / [测试说明](../sites/chengchuan-rebuild/tests/README.md) | 实际运行、测试范围和局限 | 当前代码维护依据 |
 
-当前设计只有 [STORY](design/STORY.md)（《还有谁在听》的局部事实与推理限度）与 [SLICE](design/SLICE.md)（玩家材料、删改后的操作及关闭指引反证）。公司调查衔接仍待重写，尚非完整十分钟悬疑的就绪稿；具体阶段以 PLAN 为准。选案比较与退役结构留在 Git 历史，不另建并列版本。
+当前设计只有 [STORY](design/STORY.md)（《还有谁在听》的既有提款、无效核验与公司分工事实）与 [SLICE](design/SLICE.md)（只读试验、组件暂停、资金异议、分支与纸面检查）。新稿明确替换旧“唐雯未投入”的设定；待体验验证，具体阶段以 PLAN 为准。旧选案与失败衔接留在 Git 历史，不另建版本。
 
 ## 当前有什么：盘点时的代码与资产
 
