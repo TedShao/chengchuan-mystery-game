@@ -13,7 +13,7 @@
 | [在线操作](ONLINE-WORKFLOW.md) | 网页编辑、Actions、Pages 的实际操作 | 工具层，不能代替故事验收 |
 | [项目 README](../sites/chengchuan-rebuild/README.md) / [测试说明](../sites/chengchuan-rebuild/tests/README.md) | 实际运行、测试范围和局限 | 当前代码维护依据 |
 
-当前设计只有 [STORY](design/STORY.md)（局部事实、人物认知与公司调查缺口）与 [SLICE](design/SLICE.md)（4b9353a 八条纸面路线、删后分场及回走）。本轮撤回远汀调查已可推进的判断，完整后半回 R01/R02；局部仍可观察理解。被审查稿固定于 [4b9353a](https://github.com/TedShao/chengchuan-mystery-game/tree/4b9353aa1fb37ae9c5fa8e957ce1cd552642b6bf)，不另建报告。
+当前设计只有 [STORY](design/STORY.md)（《这单是我下的》：远汀业务、两案比较、作者真相与六表）与 [SLICE](design/SLICE.md)（双端订单、直接问/提前停/拒绝路线及十路纸面验证）。两份官方材料的核读边界集中在 STORY，不另增研究报告。被替换的独立交流稿固定于 [41cb9bf](https://github.com/TedShao/chengchuan-mystery-game/tree/41cb9bf0014a6757922095a36ea82aa4a2e86df7)，旧事件不再指导当前实现。
 
 ## 当前有什么：盘点时的代码与资产
 
