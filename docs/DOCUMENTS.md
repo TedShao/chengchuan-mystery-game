@@ -13,7 +13,7 @@
 | [在线操作](ONLINE-WORKFLOW.md) | 网页编辑、Actions、Pages 的实际操作 | 工具层，不能代替故事验收 |
 | [项目 README](../sites/chengchuan-rebuild/README.md) / [测试说明](../sites/chengchuan-rebuild/tests/README.md) | 实际运行、测试范围和局限 | 当前代码维护依据 |
 
-当前设计只有 [STORY](design/STORY.md)（《替你说的话》的局部事实、公司层竞争解释和证据上限）与 [SLICE](design/SLICE.md)（bd1d22f 八条反路线、精简后的回复、更正与停止点）。完整公司调查尚未就绪，阶段见 PLAN。被审查稿固定于 [bd1d22f](https://github.com/TedShao/chengchuan-mystery-game/tree/bd1d22f95ba76d209841a5e614ffec99644a94ca)；失败版本留 Git 历史，不另建报告。
+当前设计只有 [STORY](design/STORY.md)（《替你说的话》的公司服务、人物权限与区分条件）与 [SLICE](design/SLICE.md)（出席卡、实际交付变更、暂停与十条纸面反路线）。本轮重写更正后的公司调查，可进入分场观察，尚无真人体验证据。被替换稿固定于 [a294217](https://github.com/TedShao/chengchuan-mystery-game/tree/a294217ca66b187b9cf000f6a7a2dfa65ac2eb40)；历史留 Git，不另建报告。
 
 ## 当前有什么：盘点时的代码与资产
 
