@@ -13,7 +13,7 @@
 | [在线操作](ONLINE-WORKFLOW.md) | 网页编辑、Actions、Pages 的实际操作 | 工具层，不能代替故事验收 |
 | [项目 README](../sites/chengchuan-rebuild/README.md) / [测试说明](../sites/chengchuan-rebuild/tests/README.md) | 实际运行、测试范围和局限 | 当前代码维护依据 |
 
-当前设计只有 [STORY](design/STORY.md)（《这单是我下的》：业务、六表与公司调查的证据断点）与 [SLICE](design/SLICE.md)（旧稿非预设路线审查、交期来信与双端局部修订）。[bf6d4d2](https://github.com/TedShao/chengchuan-mystery-game/tree/bf6d4d2d48c748bbf753e8378275dd77d2938db3) 保留上轮完整稿及两案比较；其中采购复核和关店高潮已退役，不能照稿实现。两份官方背景来源仍集中在 STORY，本轮未重新调研，不新增报告。更早独立交流稿见 [41cb9bf](https://github.com/TedShao/chengchuan-mystery-game/tree/41cb9bf0014a6757922095a36ea82aa4a2e86df7)。
+当前设计只有 [STORY](design/STORY.md)（《这单是我下的》：业务、知情交付条件与六表）和 [SLICE](design/SLICE.md)（撤单后同源交付、停止/教学/放行与十二路纸面验证）。上轮审查固定于 [f882ebf](https://github.com/TedShao/chengchuan-mystery-game/tree/f882ebf39015953e5ebf991abd86bcc7a77e5080)；更早 [bf6d4d2](https://github.com/TedShao/chengchuan-mystery-game/tree/bf6d4d2d48c748bbf753e8378275dd77d2938db3) 的采购复核和关店高潮仍退役。现实来源仍集中在 STORY，未把新交付机制当成已考证真实案例；不新增报告。独立交流稿见 [41cb9bf](https://github.com/TedShao/chengchuan-mystery-game/tree/41cb9bf0014a6757922095a36ea82aa4a2e86df7)。
 
 ## 当前有什么：盘点时的代码与资产
 
