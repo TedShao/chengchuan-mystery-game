@@ -16,6 +16,7 @@ const assert=require('node:assert/strict');
   assert.match(await page.locator('.app-view').innerText(),/小雨|罗青/);
   await page.screenshot({path:'qa/pages-opening.png'});
   await page.getByRole('link',{name:'原工作空间 ↗',exact:true}).click();
+  await page.waitForLoadState('load');
   assert.equal(page.url(),new URL('./',base).href);
   assert.equal(await page.evaluate(()=>typeof window.ChengchuanStory?.transact),'function');
   assert.deepEqual(errors,[]);
