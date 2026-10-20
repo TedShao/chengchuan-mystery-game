@@ -13,7 +13,7 @@
 | [在线操作](ONLINE-WORKFLOW.md) | 网页编辑、Actions、Pages 的实际操作 | 工具层，不能代替故事验收 |
 | [项目 README](../sites/chengchuan-rebuild/README.md) / [测试说明](../sites/chengchuan-rebuild/tests/README.md) | 实际运行、测试范围和局限 | 当前代码维护依据 |
 
-当前设计只有 [STORY](design/STORY.md)（《退给你的钱》的局部事实、六表与未能排除的解释）和 [SLICE](design/SLICE.md)（七条反路线、删后开场、具体回应和停止点）。本轮撤回完整公司调查就绪判断，阶段见 PLAN。被审查版本固定于 [700b7c2](https://github.com/TedShao/chengchuan-mystery-game/tree/700b7c2b182a52f0be0cd88e7354831d63d2c696)，不另建报告或版本稿。教学组件、付款核验和审批仍退役。
+当前设计只有 [STORY](design/STORY.md)（《替你说的话》的局部真相、六表与正常代班的区分条件）和 [SLICE](design/SLICE.md)（接回真实身份、暂停与更正、纸面反路线记录）。《退给你的钱》退出当前规范，固定历史见 [b48188c](https://github.com/TedShao/chengchuan-mystery-game/tree/b48188cb2fa2a45d881cc62f102ca767a6acea1f)。不另建版本稿或报告，阶段见 PLAN。
 
 ## 当前有什么：盘点时的代码与资产
 
