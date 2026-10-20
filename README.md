@@ -49,3 +49,6 @@ npm run test:thanks
 `test:thanks` 覆盖当前开场的拒绝、漏附、交付、改口、收件范围、重复操作及手机布局。可用 `BROWSER_PATH` 指定本机 Chrome。部分较早的完整办公试玩脚本仍保留原环境配置，参见项目测试说明。
 
 GitHub Actions 自动运行规则测试、构建与开场浏览器回归，并在不提供 API 的静态服务器上验证开场、页面跳转及第二天分支。`main` 的全部检查通过后才更新 Pages；其他分支和 Pull Request 仅测试。通过技术测试不代表已验证真人玩家的悬疑感或乐趣。
+
+
+网页编辑备用入口：如果 github.dev 文件树长时间加载，可直接在 GitHub 打开文件，点击铅笔图标（Edit this file），修改后使用 Commit changes 提交，同样会触发自动测试和发布。
