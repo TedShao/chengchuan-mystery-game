@@ -1,4 +1,4 @@
-/* UI adapter. Formal story transitions are evaluated by the server domain. */
+/* UI adapter. Pages and the optional server share the same pure narrative domain. */
 window.installServiceDesk=function(api){
 'use strict';
 const {state:s,docs,esc,links,modal,closeModal,save,refreshMany,openApp,toast,webRoutes}=api;
@@ -28,7 +28,16 @@ function command(c){queue=queue.then(async()=>{busy=true;error='';refresh();try{
  const context=priorContext(),key=JSON.stringify(context),commands=[];
  if(view?.started&&!view.pm&&s.xuContinuity!==key)commands.push({type:'CONTINUITY',value:context});
  commands.push(c?.type==='START'?{...c,continuity:context}:c);
- for(const step of commands){const response=await fetch('/api/story/command',{method:'POST',headers:{'Content-Type':'application/json'},signal:AbortSignal.timeout(12000),body:JSON.stringify({events:s.xuEvents,command:step?{id:crypto.randomUUID(),...step}:undefined})});const data=await response.json();if(!response.ok)throw Error(data.error||'发送失败');s.xuEvents=data.events;view=data.view;if(step?.type==='START'||step?.type==='CONTINUITY')s.xuContinuity=key;sync();}return true;
+ for(const step of commands){
+  const payload={events:s.xuEvents,command:step?{id:crypto.randomUUID(),...step}:undefined};
+  let data;
+  if(window.ChengchuanStory)data=window.ChengchuanStory.transact(payload.events,payload.command);
+  else{
+   const response=await fetch('/api/story/command',{method:'POST',headers:{'Content-Type':'application/json'},signal:AbortSignal.timeout(12000),body:JSON.stringify(payload)});
+   data=await response.json();if(!response.ok)throw Error(data.error||'发送失败');
+  }
+  s.xuEvents=data.events;view=data.view;if(step?.type==='START'||step?.type==='CONTINUITY')s.xuContinuity=key;sync();
+ }return true;
  }catch(e){error=e.message;toast('未送达',error+'，草稿仍保留。');return false;}finally{busy=false;refresh();}});return queue;}
 function start(){if(s.workdays?.day!==2)return Promise.resolve();if(view?.started)return command();return command({type:'START'});}
 function isChat(t,who){

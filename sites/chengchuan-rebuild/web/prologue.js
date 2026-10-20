@@ -38,7 +38,7 @@ window.createPrologue=function({onEnter}){
     if(reduced.matches)reveal();else entranceTimer=setTimeout(reveal,60);
   }
   function finish(){if(!open||index!==pages.length-1||busy)return;clearTimers();open=false;root.hidden=true;root.innerHTML='';document.body.classList.remove('prologue-open');document.querySelector('#desktop').inert=false;try{localStorage.setItem(SEEN,'complete');}catch{}onEnter();if(returnFocus?.isConnected&&returnFocus!==document.body)returnFocus.focus({preventScroll:true});}
-  root.addEventListener('click',e=>{const action=e.target.closest('[data-prologue]')?.dataset.prologue;if(action==='trial')location.href='/opening.html';else if(action==='skip')go(pages.length-1);else if(action==='pause'){paused=!paused;controls();schedule();}else if(!busy&&action==='prev')go(index-1);else if(!busy&&action==='next')go(index+1);});
+  root.addEventListener('click',e=>{const action=e.target.closest('[data-prologue]')?.dataset.prologue;if(action==='trial')location.href='./opening.html';else if(action==='skip')go(pages.length-1);else if(action==='pause'){paused=!paused;controls();schedule();}else if(!busy&&action==='prev')go(index-1);else if(!busy&&action==='next')go(index+1);});
   document.addEventListener('visibilitychange',schedule);
   document.addEventListener('keydown',e=>{
     if(!open)return;

@@ -1,5 +1,9 @@
 # 澄川工作空间 · 独立重构版
 
+[在线试玩](https://tedshao.github.io/chengchuan-mystery-game/opening.html) · [网页编辑](https://github.dev/TedShao/chengchuan-mystery-game) · [自动测试与发布](https://github.com/TedShao/chengchuan-mystery-game/actions)
+
+日常更新默认在网页编辑器完成，由 Actions 测试后发布 Pages，详见[在线开发指南](../../docs/ONLINE-WORKFLOW.md)。下面的本地环境为可选调试方式。
+
 - 本项目独立于 `../chengchuan-firstday`，不修改原版。
 - 本地地址：http://127.0.0.1:5174/
 - 原版地址：http://127.0.0.1:5173/
@@ -22,3 +26,5 @@
 - `npm run test:thanks`：当前十分钟开场的三个浏览器回归脚本，需先启动本地服务。可用 `BROWSER_PATH` 指定已有 Chrome。
 - `npm run test:opening`：独立浏览器开场验证（需本机 Chrome 和 Playwright）。
 - `npm run verify:build`：本地构建与产物检查。
+- `npm run build:pages`：生成无需 API 服务器的 Pages 版本，校验资源路径与剧情规则一致性。
+- `npm run test:pages`：静态部署回归；先运行 `node scripts/serve-pages.mjs`，并设置 `GAME_BASE_URL=http://127.0.0.1:5175/chengchuan-mystery-game/`。

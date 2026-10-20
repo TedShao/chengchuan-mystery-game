@@ -13,3 +13,11 @@
 - Repository: https://github.com/TedShao/chengchuan-mystery-game
 - Follow the repository root `CONTRIBUTING.md`; future code and document updates should be tested, committed and pushed here, rather than remaining local-only.
 - Keep this local development project on 5174. Pushing Git is not permission to deploy the old hosted website.
+
+## GitHub Pages workflow (authorized 2026-10-20)
+
+- Default workflow: browser editing, GitHub Actions verification, and GitHub Pages preview. No Codespaces or paid services.
+- Successful main builds publish to https://tedshao.github.io/chengchuan-mystery-game/ . The old hosted site is untouched.
+- The Pages build shares src/domain rules with the optional local server. Preserve event and recipient boundaries; do not fork the story rules.
+- Use relative web links. Test at a repository subpath with no API server using `build:pages` and `test:pages`.
+- Local work is optional; avoid new duplicate working copies. Do not delete existing files or browser saves without authorization.

@@ -1,7 +1,11 @@
-name: Verify game
+name: Test and publish game
 on:
   push:
   pull_request:
+  workflow_dispatch:
+concurrency:
+  group: game-${{ github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
@@ -32,3 +36,37 @@ jobs:
             sleep 1
           done
           npm run test:thanks
+      - run: npm run build:pages
+      - name: Test Pages without an API server
+        env:
+          GAME_BASE_URL: http://127.0.0.1:5175/chengchuan-mystery-game/
+        run: |
+          node scripts/serve-pages.mjs > /tmp/chengchuan-pages.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill "$SERVER_PID" 2>/dev/null || true' EXIT
+          for attempt in $(seq 1 30); do
+            if curl --silent --fail "$GAME_BASE_URL" > /dev/null; then break; fi
+            sleep 1
+          done
+          npm run test:pages
+      - name: Package tested Pages site
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: sites/chengchuan-rebuild/dist/pages
+          retention-days: 1
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish tested build
+        id: deployment
+        uses: actions/deploy-pages@v4
