@@ -1,5 +1,7 @@
 # GitHub 迁移记录 · 2026-10-20
 
+本页是迁移当时的记录，路径与数量不是当前目录。现行工作流见 [WORKFLOW](WORKFLOW.md)，当前目录见 [DOCUMENTS](DOCUMENTS.md)。
+
 目标仓库：`TedShao/chengchuan-mystery-game`，公开仓库。
 
 ## 纳入的内容
@@ -16,7 +18,7 @@
 
 用户已在 GitHub 添加单仓库写入 Deploy key，首次推送成功。私钥保存在被忽略的 `.local/`，不纳入 Git。其他机器应使用各自的 GitHub 登录；如不再使用此机器，可从仓库 Settings → Deploy keys 移除对应公钥。
 
-今后代码与文档在本地此工作区编辑，测试后提交、推送至 GitHub。GitHub 是版本记录的来源；“在 GitHub 更新”不意味着不再保留本地开发工作副本。
+迁移初期采用本地编辑后推送；随后改为默认网页编辑、Actions 测试、Pages 试玩。本地已有副本可用于调试，但不作为第二套文档来源。
 
 ## 迁移完成
 

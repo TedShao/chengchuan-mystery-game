@@ -1,5 +1,7 @@
 # Independent rebuild boundaries
 
+- Before development, read `../../docs/PROJECT.md` and `../../docs/PLAN.md`. The v4 meeting story is not an approved implementation spec; it has been retired from the current document tree. Follow `../../docs/WORKFLOW.md` for design, deletion, validation, and release.
+
 - Work only inside this project for rebuild development.
 - `../chengchuan-firstday` is the preserved original. Do not edit it, restart its service, reuse its hosting identifiers, or migrate/reset its saves unless the user explicitly requests that later.
 - Use `http://127.0.0.1:5174` for this project; port 5173 belongs to the original.

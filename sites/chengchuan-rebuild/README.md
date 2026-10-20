@@ -1,30 +1,25 @@
-# 澄川工作空间 · 独立重构版
+# 澄川独立项目：当前代码说明
 
-[在线试玩](https://tedshao.github.io/chengchuan-mystery-game/opening.html) · [网页编辑](https://github.dev/TedShao/chengchuan-mystery-game) · [自动测试与发布](https://github.com/TedShao/chengchuan-mystery-game/actions)
+开工先读 [PROJECT](../../docs/PROJECT.md) 与 [PLAN](../../docs/PLAN.md)。当前阶段是重建冲突，不是照 v4 实现；本目录代码尚未替换为新方案。
 
-日常更新默认在网页编辑器完成，由 Actions 测试后发布 Pages，详见[在线开发指南](../../docs/ONLINE-WORKFLOW.md)。下面的本地环境为可选调试方式。
+## 实际存在的两个入口
 
-- 本项目独立于 `../chengchuan-firstday`，不修改原版。
-- 本地地址：http://127.0.0.1:5174/
-- 原版地址：http://127.0.0.1:5173/
-- 独立浏览器存档键：`chengchuan-rebuild-v1`；不读取、迁移或清空原版存档。
-- 没有复制原站点托管标识，不发布或覆盖原网站。
-- 保留原版剧情、办公与下午状态模块作为迁移基础；本轮重做新玩家开场交互。
+- `web/opening.html` / [线上十分钟开场](https://tedshao.github.io/chengchuan-mystery-game/opening.html)：文书核对版《那句谢谢》，主要逻辑在 `web/reply-opening.js`。
+- `web/index.html` / [线上完整办公](https://tedshao.github.io/chengchuan-mystery-game/)：更早的办公和第二天剧情。部分规则在 `src/domain/`，部分仍在 `web/`。
 
-代码与文档统一维护于 [GitHub 仓库](https://github.com/TedShao/chengchuan-mystery-game)。完整迁移目录与开发约定见[根目录说明](../../README.md)。
+Pages 构建将 domain 模块封装进浏览器，保留可选本地服务器。只有这一部分是同源规则，不能据此声称所有开场和聊天已统一架构。
 
-使用 Node.js 22 或更新版本，先执行 `npm ci`，再执行 `npm run dev`。
+## 可选本地运行
 
-## 本轮可玩内容
+Node.js 22+，在本目录执行：
 
-目前优先打磨的十分钟体验是 **《那句谢谢》**，入口为 http://127.0.0.1:5174/opening.html 。玩家从回复与内部复盘的差异入手，通过查阅、询问、修订和实际交付观察同事的选择。完整办公工作空间仍保留在根路径，支持自由办公与原有剧情模块。
+```sh
+npm ci
+npm run dev
+```
 
-历史重构方案见 [开场说明](docs/REBUILD-OPENING.md)，后续迭代记录见 [progress.md](progress.md)。
+访问 `http://127.0.0.1:5174/opening.html` 或根路径。5173 属于原版，不能占用。浏览器存档键保留 `chengchuan-rebuild-v1` 及独立序幕键；不清空或迁移原版存档。
 
-- `npm test`：剧情规则测试。
-- `npx playwright install chromium`：首次安装测试浏览器。
-- `npm run test:thanks`：当前十分钟开场的三个浏览器回归脚本，需先启动本地服务。可用 `BROWSER_PATH` 指定已有 Chrome。
-- `npm run test:opening`：独立浏览器开场验证（需本机 Chrome 和 Playwright）。
-- `npm run verify:build`：本地构建与产物检查。
-- `npm run build:pages`：生成无需 API 服务器的 Pages 版本，校验资源路径与剧情规则一致性。
-- `npm run test:pages`：静态部署回归；先运行 `node scripts/serve-pages.mjs`，并设置 `GAME_BASE_URL=http://127.0.0.1:5175/chengchuan-mystery-game/`。
+构建、测试与适用范围见 [tests/README.md](tests/README.md)。网页编辑、Actions、Pages 见 [在线指南](../../docs/ONLINE-WORKFLOW.md)。旧实现的体验问题见 [代理试玩审查](../../docs/playtests/THANKS-TEN-MINUTE-AUDIT.md)，不把它当作真人验收。
+
+原版快照、旧托管站和同级原项目保持隔离。新片段验证通过以后，才按 R05 决定生产入口及旧模块退役，避免永久并列叠加。

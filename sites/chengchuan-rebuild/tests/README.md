@@ -1,60 +1,43 @@
-# v16 前后端与许川流程验证
+# 当前测试入口与证据范围
 
-先运行 `npm run dev`，再运行 `node --test tests/story-domain.test.mjs`、`node tests/refactor-v16.cjs`、`node tests/workdays.cjs`、`node tests/blind-dialogue.cjs`。新界面路线使用真实发送和回复，不注入完成状态。
+核查日期：2026-10-20。命令按 `package.json`、脚本和 CI 配置核对；本次文档整理没有重跑游戏回归。过去通过的结果不自动适用于未来重构。
 
-`npm run build` 后运行 `node scripts/validate-artifact.mjs` 检查部署包中的主页和真实剧情接口。
+## 现有 CI 实际执行什么
 
-本版需要 HTTP 剧情接口，下面历史版本的静态服务器说明不再适用于 v16。
+在 `sites/chengchuan-rebuild/` 中执行，Node.js 22+：
 
-# Interaction regression scenarios
+| 检查 | 命令 / 条件 | 能证明 | 不能证明 |
+|---|---|---|---|
+| 规则测试 | `npm test` | 六个 `*domain.test.mjs` 文件的断言 | 新剧本公平或好玩；所有规则都已集中到 domain 目录 |
+| 本地服务器产物 | `npm run verify:build` | 构建与对应产物检查 | Pages 不依赖 API |
+| 旧十分钟开场 | 启动 `npm run dev` 后 `npm run test:thanks` | 三个浏览器套件覆盖实际发送、拒绝、补送、改口、重复与布局等 | v4 已实现或真人会主动追查 |
+| Pages 构建 | `npm run build:pages` | 静态资源与已封装 domain 规则检查 | 全部历史浏览器脚本适配静态版 |
+| Pages 环境回归 | 启动 `node scripts/serve-pages.mjs`；设置下述地址后 `npm run test:pages` | 子路径跳转、同组三个开场套件、第二天部分分支在无 API 环境下工作 | 从全新玩家开场完整玩到第二天并产生兴趣 |
 
-## Current version: business bridge / v15
+`test:thanks` = `reply-opening.cjs`、`thanks-experiment.cjs`、`thanks-curiosity.cjs`。
 
-Run `node tests/business-bridge.cjs` for the new no-guide correction-to-business route, false funds inference, refusal/access follow-up, omitted case, real handoff and retraction, persistence and private draft knowledge. Tests use actual UI actions and read state only for assertions. See `PLAYTEST-BUSINESS-V15.md`.
+`test:pages` = `pages-navigation.cjs` + `test:thanks` + `morning-branches.cjs`。
 
-## Retained workdays / v14 regression
+```sh
+GAME_BASE_URL=http://127.0.0.1:5175/chengchuan-mystery-game/ npm run test:pages
+```
 
-Run `node tests/workdays.cjs`, `node tests/luoqing-day.cjs`, `node tests/blind-dialogue.cjs`, and `node tests/luoqing-prologue.cjs`. The first suite covers the new delivery loop, day-one handoff through day-two lunch, divergent ownership/permissions, late inquiries, meeting snapshots, rejected judgments, changes of mind, duplicates and narrow layouts. Only its explicit migration check injects an older save structure; story routes operate the real UI. Existing day/dialogue suites now dismiss persistent receipts and assert that withdrawal affects training permission, not the personal report.
+本地测试的浏览器依赖可先执行 `npx playwright install chromium`；支持的脚本可用 `BROWSER_PATH` 指定已有浏览器。CI 对开场分别测服务器与静态环境，这是两个环境的回归，不是两份真人体验证据。
 
-Earlier v1–v11 scripts listed below remain historical references. See `PLAYTEST-WORKDAYS-V14.md` for the current manual walkthrough and practical limits.
+## 历史脚本怎么处理
 
-Run from the game repository root against a local static preview of `dist/`.
+其他套件仍保留在仓库，有的依赖旧剧情、旧 UI、`GAME_URL` 或本机环境；有的默认指向 5173。不要全目录盲跑，也不要启动旧项目来让它们通过。按所改行为检查脚本的入口和适用状态，再决定更新、运行或退役。
 
-- `free-exploration.cjs`: unguided full-day route captured from actual exploratory play, wrong-claim and wrong-source recovery, contextual dialogue, independent service/signoff comparison, explicit task ownership, archived HR replies and chat viewport preservation.
-- `publication-feedback.cjs`: distinct quantity/business corrections, preserved units/scopes, unconfirmed statements and sentence-local claim checking.
-- `investigation.cjs`: fresh independent-source inquiry, two normal receipt checks, unrelated and same-origin evidence, publication correction and recovery, held/submitted financial consequences, both final handovers, returning prologue, comparison scroll/drafts and 390px layout.
-- `guided-day.cjs`: full prologue-to-clock-out workflow with the guide enabled, work-experience output, detours, revision recovery, contextual topics, one-time HR replies and source-gated follow-up.
-- `prologue.cjs`: automatic fades, pause/navigation/skip, keyboard focus, entry, reload, existing save preservation, replay, reset, reduced motion and mobile layout.
-- `interaction-edges.cjs`: repeated topics before/after completion, draft isolation, negation/question/quotation handling, one-time HR requests, email routing, report idempotency, archived work invariants, invalid import rejection, duplicate approvals.
-- `conversation-matrix.cjs`: eight workflow states × four colleagues × three quick topics × three repetitions = 288 sends. Uses isolated browser contexts and explicit synthetic save fixtures. Verifies that ordinary conversation cannot reset work or repeatedly grant documents.
-- `fixtures/completed-day.json`: game-only save captured after a valid playthrough. Contains no real communications or account credentials.
+`morning-branches.cjs` 使用第二天存档样例初始化；它检验该阶段行为，不证明前一天新玩家路径可达。合成样例在 `fixtures/`；临时截图和日志写忽略的 `qa/`。需要长期引用的记录整理到根目录 `docs/playtests/`，注明版本、使用过的状态注入和局限。
 
-Environment:
+历史完整环境说明见 [固定旧版本](https://github.com/TedShao/chengchuan-mystery-game/blob/42ab1e0216f19c24096aa2b123c90565cd7f552c/sites/chengchuan-rebuild/tests/README.md)，不可当作当前命令清单。
 
-- `GAME_URL` defaults to `http://127.0.0.1:5173`.
-- `PLAYWRIGHT_MODULE` optionally identifies an installed Playwright module; otherwise resolves `playwright` normally.
-- `BROWSER_PATH` optionally identifies a local Chromium/Chrome executable.
+## 按改动选择验证
 
-Run `node tests/free-exploration.cjs`, `node tests/publication-feedback.cjs`, `node tests/investigation.cjs`, `node tests/guided-day.cjs`, `node tests/prologue.cjs`, `node tests/interaction-edges.cjs` and `node tests/conversation-matrix.cjs`. Results and screenshots go to ignored `qa/`. These are state and interaction regressions, not a human blind playtest or a proof that arbitrary natural language is understood.
+- 纯文档：链接、状态与适用版本、退休文件可恢复性、相互矛盾检查；实验合同用对应技能验证器。当前 CI 没有文档跳过规则，推送仍触发现有检查。
+- 对话 / 事件：接收信息前后、拒绝、否定、改口、重复、未发送与已发送；根据改动运行相关领域与浏览器用例。
+- 界面 / 教学：无指引实际操作、发送反馈、焦点与窄屏，不能只测按钮点击。
+- 构建 / 路由：服务器与 Pages 子路径、资源加载及无 API 行为。
+- 存档 / 删除旧模块：旧样例恢复、未发草稿与历史发送不丢失、没有残留入口与依赖；先约定不兼容时的处理方式。
 
-Conversation-specific checks added in v10:
-
-- `node tests/dialogue-planner.cjs`: 36 isolated semantic planning cases, including negation scopes, hypotheticals, quotation, corrections, multiple requests, ambiguous references and preserving a historical “changed to” statement. No browser required.
-- `node tests/dialogue-context.cjs`: continuous UI chat chains, distinct question facets, scoped explicit grants, ambiguous acknowledgements, persistent/legacy per-person context, role-limited knowledge, old topics after closure and invalid memory import. Uses the same browser environment variables above.
-- HR requests in the guided and edge suites now say “请发…” explicitly. Asking whether a file has arrived must not itself grant it.
-
-Personal-stakes checks added in v11:
-
-- `node tests/personal-mystery.cjs`: no-guide opening → channel receipt → timestamped personal OA record → wrong inference and correction → independently verified recommendation basis → prioritized review → separate brand authorization → explicit handover and cancellation. Verifies idempotence, persistence, contextual replies and ordinary work delegation. Forks the actual pre-handover save to verify acceptance and holding without sending the authorization attachment; those branches must not inherit cancellation.
-
-## Current version: Luo Qing / v13
-
-Run `node tests/luoqing-day.cjs` and `node tests/luoqing-prologue.cjs` against a static server serving `dist/`. Set `GAME_URL`, `PLAYWRIGHT_MODULE`, and `BROWSER_PATH` for your environment. The day suite also discovers the bundled desktop Playwright installation when no module override is provided.
-
-These suites use actual UI actions and inspect the resulting messages, document content, recipients, persistence, and next assignments. State is read for assertions, not injected to manufacture route completion. `luoqing-prologue` uses a browser clock to exercise long fade/pause intervals.
-
-All earlier scenario scripts target the retired v1–v11 story. They are retained as historical regression references and are not claimed to pass against the revised case.
-
-### v13 unguided conversation and recovery
-
-`node tests/blind-dialogue.cjs` replays the observed chat-first route with the guide closed, using real UI actions rather than injected completion state. It covers 22 natural-language turns, visible links to service details and colleagues, compound questions, contextual follow-ups, negation, allegation retraction, hearsay versus forwarded originals, role-limited report knowledge, and a mistaken summary adoption followed by withdrawal, revision, reload and clock-out. The script asserts that ordinary chat never sends an inquiry or grants a file. Generated logs and screenshots go to ignored `qa/blind-v13/`.
+故事是否值得做按 [产品工作流](../../../docs/WORKFLOW.md) 另验。重构选定前不要添加验证 v4 细节的测试，把尚未采用的方案锁进程序。
