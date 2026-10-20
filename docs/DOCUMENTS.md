@@ -13,7 +13,7 @@
 | [在线操作](ONLINE-WORKFLOW.md) | 网页编辑、Actions、Pages 的实际操作 | 工具层，不能代替故事验收 |
 | [项目 README](../sites/chengchuan-rebuild/README.md) / [测试说明](../sites/chengchuan-rebuild/tests/README.md) | 实际运行、测试范围和局限 | 当前代码维护依据 |
 
-当前设计只有 [STORY](design/STORY.md)（保留事实、人物、冲突与被否决的推断）与 [SLICE](design/SLICE.md)（参考体验、局部动作、分支与纸面反证）。两者当前保留局部片段，不能作为完整悬疑的实现依据或就绪的盲测稿；下一项以 PLAN 为准，不从历史里自行选“最新版本”开工。
+当前设计只有 [STORY](design/STORY.md)（《还有谁在听》的两案取舍、事实、人物与推理限度）与 [SLICE](design/SLICE.md)（玩家可见材料、网页动作、分支与纸面排演）。当前用于 R03 验证，未取得真人体验证据；下一项以 PLAN 为准，不从历史里自行选“最新版本”开工。
 
 ## 当前有什么：盘点时的代码与资产
 
