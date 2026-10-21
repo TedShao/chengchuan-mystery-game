@@ -1,6 +1,6 @@
 # Independent rebuild boundaries
 
-- Before development, read `../../docs/PROJECT.md` and `../../docs/PLAN.md`. The v4 meeting story is not an approved implementation spec; it has been retired from the current document tree. Follow `../../docs/WORKFLOW.md` for design, deletion, validation, and release.
+- Before development, read `../../docs/PROJECT.md` and `../../docs/PLAN.md`. The only current story specification is ../../docs/design/STORY.md, with SLICE.md and INTERACTION.md in the same directory. Existing code and fixtures are not narrative references. This task is text-only; do not change code, tests, dependencies, deployment, or saves. Follow `../../docs/WORKFLOW.md` for design, deletion, validation, and release.
 
 - Work only inside this project for rebuild development.
 - `../chengchuan-firstday` is the preserved original. Do not edit it, restart its service, reuse its hosting identifiers, or migrate/reset its saves unless the user explicitly requests that later.
@@ -22,4 +22,4 @@
 - Successful main builds publish to https://tedshao.github.io/chengchuan-mystery-game/ . The old hosted site is untouched.
 - The Pages build shares src/domain rules with the optional local server. Preserve event and recipient boundaries; do not fork the story rules.
 - Use relative web links. Test at a repository subpath with no API server using `build:pages` and `test:pages`.
-- Local work is optional; avoid new duplicate working copies. Do not delete existing files or browser saves without authorization.
+- Local work is optional; avoid new duplicate working copies. Old narrative documents have been removed under user authorization. Preserve code, test fixtures, and browser saves until a separate implementation task addresses them.

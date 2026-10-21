@@ -6,13 +6,13 @@
 
 - [编辑代码和文档](https://github.dev/TedShao/chengchuan-mystery-game)
 - [查看测试与发布](https://github.com/TedShao/chengchuan-mystery-game/actions)
-- [试玩《那句谢谢》](https://tedshao.github.io/chengchuan-mystery-game/opening.html) / [完整办公工作空间](https://tedshao.github.io/chengchuan-mystery-game/)
+- [已有原型（非新故事）](https://tedshao.github.io/chengchuan-mystery-game/opening.html) / [完整办公工作空间](https://tedshao.github.io/chengchuan-mystery-game/)
 
 网页编辑器也可以从仓库页面按英文句号 `.` 打开。它不需要克隆本地项目，不需要 Codespaces。未提交的编辑暂存在浏览器中，关掉或清理浏览器之前应提交。
 
 ## 一次更新怎么完成
 
-1. 先从 [PLAN](PLAN.md) 确定本轮任务。代码位于 `sites/chengchuan-rebuild/`，现有规则同时分布在 `web/` 与 `src/domain/`；新规范、研究和证据按 PROJECT 分类，不再向 `outputs/` 堆版本。
+1. 先从 [PLAN](PLAN.md) 确定本轮任务。代码位于 `sites/chengchuan-rebuild/`，现有规则同时分布在 `web/` 与 `src/domain/`；当前文本依据只读 PROJECT 指定的三份设计规范；旧代码与夹具不能反向决定新故事。
 2. 使用源代码管理查看差异，普通更新先建分支、发 Pull Request；合并到 `main` 后才发布。当前没有自动 PR 试玩站，文档 PR 不能当作新游戏已上线。
 3. 在 Actions 查看 **Test and publish game**。`checks` 是测试，`deploy` 是发布。测试失败时旧网站保留，打开失败步骤查看原因后修改再提交。
 4. 发布完成后打开试玩网址。浏览器可能短时间缓存旧资源；必要时强制刷新。
@@ -33,7 +33,7 @@ Pages 版本不运行服务器 API。构建脚本把 `src/domain/` 中的纯剧�
 
 所有邮件、聊天、电话和公司网页均为游戏内模拟；不发送真实邮件、短信或电话。
 
-存档仍留在当前浏览器。新域名不会自动读到 localhost 或原网站的存档；本次迁移不清理旧存档。完整工作空间原有导入导出功能保留，十分钟开场在新网址默认重新开始。换电脑不自动同步游戏进度。
+存档仍留在当前浏览器。新域名不会自动读到 localhost 或原网站的存档；文本整理不清理旧存档。完整工作空间原有导入导出功能保留，十分钟开场在新网址默认重新开始。换电脑不自动同步游戏进度。
 
 ## 可选调试
 
@@ -54,4 +54,4 @@ npx playwright install chromium
 GAME_BASE_URL=http://127.0.0.1:5175/chengchuan-mystery-game/ npm run test:pages
 ```
 
-5175 仅用于模拟 Pages 子路径和无 API 环境。旧 5173、5174 服务不受影响。本地旧文件目前保留，不因迁移自动删除。
+5175 仅用于模拟 Pages 子路径和无 API 环境。旧 5173、5174 服务不受影响。保留程序与存档不因文本清理而改变。

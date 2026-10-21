@@ -1,16 +1,13 @@
-# 后续更新约定
+# 项目维护约定
 
-统一仓库：`TedShao/chengchuan-mystery-game`。开工先读 [PROJECT](docs/PROJECT.md)、[PLAN](docs/PLAN.md)，执行 [WORKFLOW](docs/WORKFLOW.md)。不要将历史大纲当作缺失的新规范。
+先读 [PROJECT](docs/PROJECT.md) 和 [PLAN](docs/PLAN.md)，按 [WORKFLOW](docs/WORKFLOW.md) 执行。
 
-1. 检查远端、分支和未提交工作，保留他人修改；普通更新采用分支 / PR，明确授权直接改主线时才直接提交 main。
-2. 本轮目标以 PLAN 中的任务为准，允许结果为删除或推翻。每次只解决一个主要体验问题，不用扩章掩盖失败。
-3. 新的正式规范在通过相应门槛后写入 `docs/design/STORY.md` 与 `docs/design/SLICE.md`；不预建空文件，不继续新建 `outputs/` 版本系列。研究放 `docs/research/`，证据放 `docs/playtests/`，实验放 `docs/experiments/`。
-4. 被替代内容从当前树退役，DOCUMENTS 保存固定提交链接和理由。删除可恢复的旧文档无须另设批准流程；代码、存档和生产入口的退役必须有依赖检查与回归证据。
-5. 当前代码在 `sites/chengchuan-rebuild/`，本地 5174；原 5173、`archive/`、旧托管站与 `sources/` 不修改。不要复制新的工作副本解决组织问题。
-6. 新片段应使剧情规则有单一来源；现有代码仍有前端内嵌规则，不能声称已全量统一，也不要在整理文档时顺手迁移。
-7. 阅读、草稿、预览、取消不算发送；同事只知道实际收到的信息。明确区分选择、批准、通知和已发生事件。
-8. 执行与改动有关的检查；代理走查、自动测试和真人证据分别报告。缺真人验证时不能宣称好玩或将 G3 标为完成。
-9. 不提交密钥、环境凭据、浏览器资料、依赖、构建产物与未经整理的 QA。源文档与必要样例进入 GitHub，不只留本地。
-10. main 成功构建发布 Pages；分支仅测试。保持公开仓库、标准运行器和当前默认域名，不启用收费服务；不把计划中的自动化说成已经配置。
+- 当前唯一故事是《回来以后再联系》，依据为 [STORY](docs/design/STORY.md)、[SLICE](docs/design/SLICE.md)、[INTERACTION](docs/design/INTERACTION.md)。旧实现不是新剧情的补充资料。
+- 本轮只重建文本；不改代码、测试程序、依赖、部署或存档。后续实现须有对应开发任务。
+- 修改现有文件，不建版本副本；旧故事、旧调研、旧实验和旧剧情测试记录不回填当前目录。需要研究时重新提取有证据支持的事实，不恢复整个旧稿。
+- 普通更新用分支 / PR；检查远端和本地变更，保留他人修改，不强推、不擅自合并或发布。
+- `sources/` 是只读同步材料。原 5173 和旧托管站不动；当前项目只用 5174。`archive/` 仅存保留程序，不参与创作。
+- 真实收件、草稿隔离、改口留痕及角色知情边界是行为约束。作者推演、自动测试、真人观察分别报告。
+- 不提交凭据、依赖目录、构建产物或未经同意的私人资料。不引入付费服务。
 
-工作完成后更新唯一计划的状态和证据，删除重复依据。当前技术流程见 [在线指南](docs/ONLINE-WORKFLOW.md)，测试命令见 [测试说明](sites/chengchuan-rebuild/tests/README.md)。
+当前结构见 [DOCUMENTS](docs/DOCUMENTS.md)；工程操作见 [在线指南](docs/ONLINE-WORKFLOW.md)及[测试说明](sites/chengchuan-rebuild/tests/README.md)。

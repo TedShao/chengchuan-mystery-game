@@ -1,38 +1,19 @@
-# 澄川 · 网页悬疑推理游戏
+# 澄川｜网页悬疑推理游戏
 
-[开发先读](docs/PROJECT.md) · [当前计划](docs/PLAN.md) · [迭代工作流](docs/WORKFLOW.md) · [资产与历史索引](docs/DOCUMENTS.md)
+当前文本重构：**《回来以后再联系》**。你是一名刚找到工作的招聘助理。一个接待过的求职者去了国外，他的父亲打来电话，想知道儿子为什么回不来。
 
-**当前阶段：《这单是我下的》重构为知情交付的调查，未改代码。** 旧单与采购可撤干净；玩家限定自己的演示只供教学后，观察项目方是否主动改成给正式商户的“买家已付款”。阻止、仅发教学与明确放行产生不同结果，初稿和未送达不能冒充既遂证据。作者纸面验证完成，真人体验待验；线上仍为旧版。
+**先看 [完整故事大纲](docs/design/STORY.md)。** 需要看玩家如何操作，读 [场景与材料](docs/design/SLICE.md)；需要做界面和行为，读 [交互约定](docs/design/INTERACTION.md)。
 
-这是以公司电脑为探索空间的现实向推理游戏。玩家通过文件、网页和人物行动验证猜测，选择应改变后续事件。自由办公是环境，不是主线需要完成的工作量。
+[项目基线](docs/PROJECT.md) · [当前计划](docs/PLAN.md) · [工作流](docs/WORKFLOW.md) · [文件职责](docs/DOCUMENTS.md)
 
-## 我现在该看什么
+当前只整理和创作文本，未修改程序。旧故事、旧调研、旧实验及剧情试玩文本已从本分支清理；新故事尚未实现、未经过陌生玩家验证。人物和公司均为虚构，设计文档包含剧透。
 
-| 要做的事 | 入口 |
-|---|---|
-| 开始任何开发 | [PROJECT](docs/PROJECT.md)：边界、基线与依据顺序 |
-| 领取下一项工作 | [PLAN](docs/PLAN.md)：阶段、依赖和验收 |
-| 设计、删减、测试、发布 | [WORKFLOW](docs/WORKFLOW.md) |
-| 阅读当前重构设计 | [STORY](docs/design/STORY.md)：事实、人物、冲突；[SLICE](docs/design/SLICE.md)：网页操作、分支、参考体验与纸面检查 |
-| 找研究、旧剧本、过去验证 | [DOCUMENTS](docs/DOCUMENTS.md)：保留与退役原因、固定历史链接 |
-| 启动或维护现有代码 | [项目说明](sites/chengchuan-rebuild/README.md) / [测试说明](sites/chengchuan-rebuild/tests/README.md) |
+## 仓库与试玩
 
-本轮删去收费争议的续查结构，采用同一份内容的源、实际收件范围与定向改写。直接问、先停、拒绝、部分发送、改口和重复操作已作作者纸面反证；允许早停后只知道部分事实，不为通关强制放行新损失。
+GitHub 是代码与文档的唯一版本来源。本次文本在 `docs/mystery-rebuild-v4` 分支；这个名称不代表继续使用旧版故事。通过既有草稿 PR 评审，尚未合并主线。
 
-## 已实现版本与工具
+[已有原型入口](https://tedshao.github.io/chengchuan-mystery-game/opening.html) · [已有工作空间](https://tedshao.github.io/chengchuan-mystery-game/) · [网页编辑器](https://github.dev/TedShao/chengchuan-mystery-game) · [Actions](https://github.com/TedShao/chengchuan-mystery-game/actions)
 
-[旧版十分钟试玩](https://tedshao.github.io/chengchuan-mystery-game/opening.html) · [旧完整办公流程](https://tedshao.github.io/chengchuan-mystery-game/) · [网页编辑](https://github.dev/TedShao/chengchuan-mystery-game) · [测试与发布](https://github.com/TedShao/chengchuan-mystery-game/actions)
+以上网页仍是旧程序，仅供维护时确认现状，**不是新故事试玩**。main 成功构建后才发布 Pages；当前没有自动 PR 预览站。具体操作见 [在线指南](docs/ONLINE-WORKFLOW.md)。不使用 Codespaces 或付费 API。
 
-当前代码在 `sites/chengchuan-rebuild/`。GitHub 保存文档与代码；`main` 测试通过后发布 Pages。分支和 PR 当前只测试，没有自动预览站。浏览器编辑不能直接运行游戏，操作见[在线指南](docs/ONLINE-WORKFLOW.md)。不使用 Codespaces、付费运行器或外部 AI/通信服务。
-
-可选本地运行（Node.js 22+）：
-
-```sh
-cd sites/chengchuan-rebuild
-npm ci
-npm run dev
-```
-
-地址为 `http://127.0.0.1:5174/opening.html` 与 `http://127.0.0.1:5174/`。旧 5173 项目保持隔离。玩家进度在浏览器本地，不随 GitHub 跨设备同步。
-
-资料含完整剧透，人物与公司均为虚构。`archive/` 为原版只读快照；`sources/` 如在本机存在，则是只读同步参考，不在本仓库维护。代码可运行、测试通过，不代表悬疑体验已经获玩家验证。
+保留程序在 `sites/chengchuan-rebuild/`，本地端口 5174；[运行说明](sites/chengchuan-rebuild/README.md)。`archive/` 仅保存原程序，旧文本已清理；不与新项目混用。`sources/` 若在本机存在，是只读同步材料，不在本仓库维护。
