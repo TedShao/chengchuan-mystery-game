@@ -4,21 +4,12 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/dev.mjs",
-    "build": "node scripts/build.mjs",
-    "test": "node --test tests/*domain.test.mjs",
-    "test:opening": "node tests/rebuild-opening.cjs",
-    "verify:build": "node scripts/build.mjs && node scripts/validate-artifact.mjs",
-    "test:lesson": "node tests/first-lesson.cjs",
-    "test:feedback": "node tests/report-feedback.cjs",
-    "test:choices": "node tests/report-choice.cjs",
-    "test:chapter-one": "node tests/chapter-one-probe.cjs",
-    "test:narrative": "node tests/report-narrative.cjs",
-    "test:recovery": "node tests/new-player-recovery.cjs",
-    "test:morning": "node tests/day-two-observer.cjs && node tests/morning-branches.cjs",
-    "test:background": "node tests/opening-context.cjs && node tests/opening-novice.cjs",
-    "test:thanks": "node tests/reply-opening.cjs && node tests/thanks-experiment.cjs && node tests/thanks-curiosity.cjs",
-    "build:pages": "node scripts/build-pages.mjs && node scripts/validate-pages.mjs",
-    "test:pages": "node tests/pages-navigation.cjs && npm run test:thanks && node tests/morning-branches.cjs"
+    "build": "node scripts/build-pages.mjs",
+    "build:pages": "node scripts/build-pages.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:browser": "node tests/browser.cjs",
+    "test:pages": "node tests/browser.cjs",
+    "verify:build": "node scripts/build-pages.mjs && node scripts/validate.mjs"
   },
   "engines": {
     "node": ">=22"
