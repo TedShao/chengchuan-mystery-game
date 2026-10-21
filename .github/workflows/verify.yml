@@ -26,7 +26,7 @@ jobs:
       - run: npm test
       - run: npm run verify:build
       - run: npx playwright install --with-deps chromium
-      - name: Test ten-minute opening
+      - name: Test rebuilt recruitment story
         run: |
           node scripts/dev.mjs > /tmp/chengchuan-dev.log 2>&1 &
           SERVER_PID=$!
@@ -35,7 +35,7 @@ jobs:
             if curl --silent --fail http://127.0.0.1:5174/opening.html > /dev/null; then break; fi
             sleep 1
           done
-          npm run test:thanks
+          npm run test:browser
       - run: npm run build:pages
       - name: Test Pages without an API server
         env:
